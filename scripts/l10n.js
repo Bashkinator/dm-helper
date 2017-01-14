@@ -3,15 +3,15 @@ var l10n = {
 	currentLanguage: "eng",
 
 	translate: function(str) {		
-		var lang = currentLanguage;
-		if(!lang || !strings[lang]) {
+		var lang = this.currentLanguage;
+		if(!lang || !this.strings[lang]) {
 			lang = "eng";
 		}
-		var res = strings[lang][str];		
+		var res = this.strings[lang][str];		
 		if (!res) {
-			res = strings.eng[str];
+			res = this.strings.eng[str];
 		}
-		return (strings[lang][str]) ? strings[lang][str] : "";
+		return (this.strings[lang][str]) ? this.strings[lang][str] : "";
 	},
 
 	strings: {
@@ -214,7 +214,10 @@ var l10n = {
 			EPIC_DESTINY_INVINCIBLE_MIND: 					"Invincible Mind",
 			EPIC_DESTINY_MASTER_OF_THE_ETERNAL_HUNT: 		"Master of the Eternal Hunt",
 			EPIC_DESTINY_RUNE_MAKER: 						"Rune Maker",
-			EPIC_DESTINY_WAR_MASTER: 						"War Master"
+			EPIC_DESTINY_WAR_MASTER: 						"War Master",
+
+			//field hits and captions
+			FIELD_HINT_PORTRAIT: 							"Portrait of your character" 
 
 		},
 
@@ -418,7 +421,10 @@ var l10n = {
 			EPIC_DESTINY_INVINCIBLE_MIND: 					"Непобедимый разум",
 			EPIC_DESTINY_MASTER_OF_THE_ETERNAL_HUNT: 		"Мастер вечной охоты",
 			EPIC_DESTINY_RUNE_MAKER: 						"Создатель рун",
-			EPIC_DESTINY_WAR_MASTER: 						"Владыка войны"
+			EPIC_DESTINY_WAR_MASTER: 						"Владыка войны",
+
+			//field hits and captions
+			FIELD_HINT_PORTRAIT: 							"Портрет вашего персонажа" 			
 
 		}		
 
