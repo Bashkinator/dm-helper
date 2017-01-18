@@ -217,7 +217,9 @@ var l10n = {
 			EPIC_DESTINY_WAR_MASTER: 						"War Master",
 
 			//field hits and captions
-			FIELD_HINT_PORTRAIT: 							"Portrait of your character" 
+			FIELD_HINT_PORTRAIT: 							"Portrait of your character",			
+			ADD_XP_REPONSE_TEXT: 							"You've got some XP! How much?", 
+			ADD_XP_RESPONSE_TITLE: 							"Add XP"			
 
 		},
 
@@ -424,7 +426,9 @@ var l10n = {
 			EPIC_DESTINY_WAR_MASTER: 						"Владыка войны",
 
 			//field hits and captions
-			FIELD_HINT_PORTRAIT: 							"Портрет вашего персонажа" 			
+			FIELD_HINT_PORTRAIT: 							"Портрет вашего персонажа",
+			ADD_XP_REPONSE_TEXT: 							"Вы получили опыт! Как много?", 
+			ADD_XP_RESPONSE_TITLE: 							"Добавить опыт"
 
 		}		
 
