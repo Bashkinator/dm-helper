@@ -231,89 +231,39 @@ var handlers = {
 		}
 	},
 
-	aDiamonds: {
+	money: {
 		validate: function(event){
-			var newDiamonds = parseInt(event.value);
-			if(Number.isNaN(newDiamonds) || (newDiamonds<0)){
+			var newMoney = parseInt(event.value);
+			if(Number.isNaN(newMoney) || (newMoney<0)){
 				event.rc = false;
 			}
 		},
-		onChange: function(event) {
+		onChange: function(event, money) {
 			if(!event) return;
-			var newDiamonds = parseInt(event.value);
-			if(newDiamonds != character.money.astralDiamonds){
-				character.money.astralDiamonds = newDiamonds;
+			var newMoney = parseInt(event.value);
+			if(newMoney != character.money[money]){
+				character.money[money] = newMoney;
 				character.updateView(event.target.doc);
 			}			
 		}
-	},			
+	},
 
-	platinum: {
-		validate: function(event){
-			var newPlatinum = parseInt(event.value);
-			if(Number.isNaN(newPlatinum) || (newPlatinum<0)){
-				event.rc = false;
-			}
-		},
-		onChange: function(event) {
-			if(!event) return;
-			var newPlatinum = parseInt(event.value);
-			if(newPlatinum != character.money.platinum){
-				character.money.platinum = newPlatinum;
-				character.updateView(event.target.doc);
-			}			
-		}
-	},	
 
-	gold: {
+	abilityScore: {
 		validate: function(event){
-			var newGold = parseInt(event.value);
-			if(Number.isNaN(newGold) || (newGold<0)){
+			var newScore = parseInt(event.value);
+			if(Number.isNaN(newScore) || (newScore<0)){
 				event.rc = false;
 			}
 		},
-		onChange: function(event) {
+		onChange: function(event, ability) {
 			if(!event) return;
-			var newGold = parseInt(event.value);
-			if(newGold != character.money.gold){
-				character.money.gold = newGold;
+			var newScore = parseInt(event.value);
+			if(newScore != character.abilities[ability]){
+				character.abilities[ability] = newScore;
 				character.updateView(event.target.doc);
 			}			
 		}
-	},	
-
-	silver: {
-		validate: function(event){
-			var newSilver = parseInt(event.value);
-			if(Number.isNaN(newSilver) || (newSilver<0)){
-				event.rc = false;
-			}
-		},
-		onChange: function(event) {
-			if(!event) return;
-			var newSilver = parseInt(event.value);
-			if(newSilver != character.money.silver){
-				character.money.silver = newSilver;
-				character.updateView(event.target.doc);
-			}			
-		}
-	},	
-
-	copper: {
-		validate: function(event){
-			var newCopper = parseInt(event.value);
-			if(Number.isNaN(newCopper) || (newCopper<0)){
-				event.rc = false;
-			}
-		},
-		onChange: function(event) {
-			if(!event) return;
-			var newCopper = parseInt(event.value);
-			if(newCopper != character.money.copper){
-				character.money.copper = newCopper;
-				character.updateView(event.target.doc);
-			}			
-		}
-	}					
+	},						
 
 };
