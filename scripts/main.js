@@ -117,7 +117,13 @@ function initFields() {
 	var chaField = this.getField("abilityChaScore");	
 	clearFieldHandlers(chaField);
 	chaField.setAction("Validate","handlers.abilityScore.validate(event);");	
-	chaField.setAction("Calculate","handlers.abilityScore.onChange(event,\"cha\");");					
+	chaField.setAction("Calculate","handlers.abilityScore.onChange(event,\"cha\");");	
+
+	var initiativeMiscModField = this.getField("initiativeMiscMod");	
+	clearFieldHandlers(initiativeMiscModField);
+	initiativeMiscModField.setAction("Validate","handlers.initiativeMiscMod.validate(event);");		
+	initiativeMiscModField.setAction("Calculate","handlers.initiativeMiscMod.onChange(event);");
+	initiativeMiscModField.setAction("Format","handlers.initiativeMiscMod.format(event);");		
 
 }
 

@@ -3,7 +3,13 @@ var character = {
 	loadValues: function(doc) {	
 		var xpField = doc.getField("xp");
 		this.xp = xpField.value;
-
+		var levelVal = this.getLevel();
+		if(levelVal == 30){
+			var levelField = doc.getField("level");
+			this.extraLevels = parseInt(levelField.value) - levelVal;
+		}else{
+			this.extraLevels = 0;
+		}
 		var astralDiamondsField = doc.getField("aDiamonds");
 		this.money.astralDiamonds = astralDiamondsField.value;		
 		var platinumField = doc.getField("platinum");
@@ -28,6 +34,9 @@ var character = {
 		var chaField = doc.getField("abilityChaScore");
 		this.abilities.cha = chaField.value;
 
+		var initiativeMiscField = doc.getField("initiativeMiscMod");
+		this.initiativeMiscBonus = initiativeMiscField.value;				
+
 	},
 
 	updateView: function(doc) {		
@@ -36,9 +45,10 @@ var character = {
 			xpField.value = this.xp;	
 		}		
 		var levelField = doc.getField("level");
-		var newLevel = this.getLevel(); 
-		if(levelField.value != newLevel){
-			levelField.value = newLevel;	
+		var newLevel = this.getLevel(); 		
+		var oldLevel = parseInt(levelField.value);		
+		if( (oldLevel!=newLevel) && ((newLevel!=30) || (oldLevel<30)) ){			
+			levelField.value = newLevel;				
 		}
 
 		var astralDiamondsField = doc.getField("aDiamonds");
@@ -127,17 +137,31 @@ var character = {
 		var chaModLevField = doc.getField("abilityChaModLev");
 		var chaModLev = this.getAbilityModPlusLevel("cha");
 		chaModLevField.value = ((chaModLev>0)?"+":"")+chaModLev;				
+
+		var initiativeField = doc.getField("initiativeScore");
+		var initiative = this.getInitiative();
+		initiativeField.value = ((initiative>0)?"+":"")+initiative;
+		var initiativeDexModField = doc.getField("initiativeDexMod");
+		initiativeDexModField.value = ((dexMod>0)?"+":"")+dexMod;		
+		var initiativeLevelModField = doc.getField("initiativeLevelMod");
+		var levelMod = this.getLevelMod();
+		initiativeLevelModField.value = ((levelMod>0)?"+":"")+levelMod;		
+		var initiativeMiscField = doc.getField("initiativeMiscMod");
+		if(initiativeMiscField.value != this.initiativeMiscBonus){
+			initiativeMiscField.value = this.initiativeMiscBonus;
+		}			
 						
 	},	
 
 	xp: 0,
+	extraLevels: 0,
 
-	getLevel: function(){
-		return level.fromXp(this.xp);
+	getLevel: function(){		
+		return level.fromXp(this.xp) + this.extraLevels;
 	},
 
 	getLevelMod: function(){
-		var level = this.getLevel();
+		var level = this.getLevel();		
 		var halfLevel = level/2;
 		return Math.floor(halfLevel);
 	},
@@ -183,6 +207,10 @@ var character = {
 	surgesPerDay: 0,
 
 	initiativeMiscBonus: 0,
+
+	getInitiative: function(){
+		return this.getAbilityModPlusLevel("dex") + this.initiativeMiscBonus; 
+	},
 
 	speed: {
 		base: 0,

@@ -223,11 +223,20 @@ var handlers = {
 		onChange: function(event) {
 			if(!event) return;
 			var newLevel = parseInt(event.value);
-			var oldLevel = character.getLevel();
-			if(oldLevel != newLevel){
-				character.xp = level.toXp(newLevel);
-				character.updateView(event.target.doc);	
-			}		
+			var oldLevel = character.getLevel();						
+			if(newLevel != oldLevel){
+				if(newLevel>30){
+					character.extraLevels = newLevel - 30;
+					if(oldLevel<30){
+						character.xp = level.toXp(newLevel);
+					}					
+				}else{
+					character.extraLevels = 0
+					character.xp = level.toXp(newLevel);
+				}
+				character.updateView(event.target.doc);		
+			}
+			
 		}
 	},
 
@@ -265,5 +274,28 @@ var handlers = {
 			}			
 		}
 	},						
+
+	initiativeMiscMod: {
+		validate: function(event){
+			if(!event) return;
+			var newMod = parseInt(event.value);
+			if(Number.isNaN(newMod)){
+				event.rc = false;
+			}
+		},
+		format: function(event){
+			if(!event) return;
+			var val = parseInt(event.value);
+			event.value = ((val>0)?"+":"") + val;
+			character.updateView(event.target.doc);	
+		},
+		onChange: function(event) {
+			if(!event) return;
+			var newMod = parseInt(event.value);
+			if(newMod != character.initiativeMiscBonus){
+				character.initiativeMiscBonus = newMod;				
+			}			
+		}
+	}	
 
 };
