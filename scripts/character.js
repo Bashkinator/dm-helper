@@ -1,16 +1,16 @@
 var character = {
 
 	loadValues: function(doc) {	
-		var xpField = doc.getField("xpField");
+		var xpField = doc.getField("xp");
 		this.xp = xpField.value;
 	},
 
 	updateView: function(doc) {		
-		var xpField = doc.getField("xpField");
+		var xpField = doc.getField("xp");
 		if(xpField.value != this.xp){
 			xpField.value = this.xp;	
 		}		
-		var levelField = doc.getField("levelField");
+		var levelField = doc.getField("level");
 		var newLevel = level.fromXp(this.xp); 
 		if(levelField.value != newLevel){
 			levelField.value = newLevel;	

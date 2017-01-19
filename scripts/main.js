@@ -17,7 +17,7 @@ function clearFieldHandlers(field) {
 
 function initFields() {
 	
-	var versionField = this.getField("versionField");
+	var versionField = this.getField("version");
 	clearFieldHandlers(versionField);
 	versionField.value = version;
 	
@@ -30,14 +30,14 @@ function initFields() {
 	clearFieldHandlers(addXpButton);
 	addXpButton.setAction("MouseUp", "handlers.addXpButton.mouseUp(event);");		
 
-	var xpField = this.getField("xpField");
+	var xpField = this.getField("xp");
 	clearFieldHandlers(xpField);
-	xpField.setAction("Validate","handlers.xpField.validate(event);");	
-	xpField.setAction("Calculate","handlers.xpField.onChange(event);");
-	var levelField = this.getField("levelField");	
+	xpField.setAction("Validate","handlers.xp.validate(event);");	
+	xpField.setAction("Calculate","handlers.xp.onChange(event);");
+	var levelField = this.getField("level");	
 	clearFieldHandlers(levelField);
-	levelField.setAction("Validate","handlers.levelField.validate(event);");	
-	levelField.setAction("Calculate","handlers.levelField.onChange(event);");	
+	levelField.setAction("Validate","handlers.level.validate(event);");	
+	levelField.setAction("Calculate","handlers.level.onChange(event);");	
 }
 
 initFields();

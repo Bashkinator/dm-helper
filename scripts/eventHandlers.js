@@ -26,7 +26,7 @@ var handlers = {
 		}
 	},
 
-	xpField: {
+	xp: {
 		validate: function(event){
 			var newXp = parseInt(event.value);
 			if(Number.isNaN(newXp) || (newXp<0)){
@@ -43,7 +43,7 @@ var handlers = {
 		}
 	},	
 
-	levelField: {
+	level: {
 		validate: function(event){
 			var newLevel = parseInt(event.value);
 			if(Number.isNaN(newLevel) || (newLevel<1)){
