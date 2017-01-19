@@ -218,8 +218,28 @@ var l10n = {
 
 			//field hits and captions
 			FIELD_HINT_PORTRAIT: 							"Portrait of your character",			
-			ADD_XP_REPONSE_TEXT: 							"You've got some XP! How much?", 
-			ADD_XP_RESPONSE_TITLE: 							"Add XP"			
+			ADD_XP_REPONSE_TEXT: 							"You've got some XP! How many?", 
+			ADD_XP_RESPONSE_TITLE: 							"Add XP",
+			ADD_ADIAMONDS_REPONSE_TEXT: 					"You've got some astral diamonds! How many?", 
+			ADD_ADIAMONDS_RESPONSE_TITLE: 					"Add Astral Diamonds",
+			ADD_PLATINUM_REPONSE_TEXT: 						"You've got some platinum! How much?", 
+			ADD_PLATINUM_RESPONSE_TITLE: 					"Add Platinum",
+			ADD_GOLD_REPONSE_TEXT: 							"You've got some golden coins! How many?", 
+			ADD_GOLD_RESPONSE_TITLE: 						"Add Golden Coins",			
+			ADD_SILVER_REPONSE_TEXT: 						"You've got some silver coins! How many?", 
+			ADD_SILVER_RESPONSE_TITLE: 						"Add silver coins",															
+			ADD_COPPER_REPONSE_TEXT: 						"You've got some copper coins! How many?", 
+			ADD_COPPER_RESPONSE_TITLE: 						"Add copper coins",
+			SPEND_ADIAMONDS_REPONSE_TEXT: 					"You've spent some astral diamonds! How many?", 
+			SPEND_ADIAMONDS_RESPONSE_TITLE: 				"Spend Astral Diamonds",
+			SPEND_PLATINUM_REPONSE_TEXT: 					"You've spent some platinum! How much?", 
+			SPEND_PLATINUM_RESPONSE_TITLE: 					"Spend Platinum",
+			SPEND_GOLD_REPONSE_TEXT: 						"You've spent some golden coins! How many?", 
+			SPEND_GOLD_RESPONSE_TITLE: 						"Spend Golden Coins",			
+			SPEND_SILVER_REPONSE_TEXT: 						"You've spent some silver coins! How many?", 
+			SPEND_SILVER_RESPONSE_TITLE: 					"Spend silver coins",															
+			SPEND_COPPER_REPONSE_TEXT: 						"You've spent some copper coins! How many?", 
+			SPEND_COPPER_RESPONSE_TITLE: 					"Spend copper coins"
 
 		},
 
@@ -427,8 +447,28 @@ var l10n = {
 
 			//field hits and captions
 			FIELD_HINT_PORTRAIT: 							"Портрет вашего персонажа",
-			ADD_XP_REPONSE_TEXT: 							"Вы получили опыт! Как много?", 
-			ADD_XP_RESPONSE_TITLE: 							"Добавить опыт"
+			ADD_XP_REPONSE_TEXT: 							"Вы получили опыт! Сколько?", 
+			ADD_XP_RESPONSE_TITLE: 							"Добавить опыт",
+			ADD_ADIAMONDS_REPONSE_TEXT: 					"Вы получили несколько астральных бриллиантов! Сколько?", 
+			ADD_ADIAMONDS_RESPONSE_TITLE: 					"Добавить астральные бриллианты",
+			ADD_PLATINUM_REPONSE_TEXT: 						"Вы получили несколько платиновых монет! Сколько?", 
+			ADD_PLATINUM_RESPONSE_TITLE: 					"Добавить платиновые монеты",
+			ADD_GOLD_REPONSE_TEXT: 							"Вы получили золотые монеты! Сколько?", 
+			ADD_GOLD_RESPONSE_TITLE: 						"Добавить золотые монеты",			
+			ADD_SILVER_REPONSE_TEXT: 						"Вы получили серебряные монеты! Сколько?", 
+			ADD_SILVER_RESPONSE_TITLE: 						"Добавить серебряные монеты",															
+			ADD_COPPER_REPONSE_TEXT: 						"Вы получили медные монеты! Сколько?", 
+			ADD_COPPER_RESPONSE_TITLE: 						"Добавить медные монеты",
+			SPEND_ADIAMONDS_REPONSE_TEXT: 					"Вы потратили несколько астральных бриллиантов! Сколько?", 
+			SPEND_ADIAMONDS_RESPONSE_TITLE: 				"Потратить астральные бриллианты",
+			SPEND_PLATINUM_REPONSE_TEXT: 					"Вы потратили платиновые монеты! Сколько?", 
+			SPEND_PLATINUM_RESPONSE_TITLE: 					"Потратить платиновые монеты",
+			SPEND_GOLD_REPONSE_TEXT: 						"Вы потратили золотые монеты! Сколько?", 
+			SPEND_GOLD_RESPONSE_TITLE: 						"Потратить золотые монеты",			
+			SPEND_SILVER_REPONSE_TEXT: 						"Вы потратили серебряные монеты! Сколько?", 
+			SPEND_SILVER_RESPONSE_TITLE: 					"Потратить серебряные монеты",															
+			SPEND_COPPER_REPONSE_TEXT: 						"Вы потратили медные монеты! Сколько?", 
+			SPEND_COPPER_RESPONSE_TITLE: 					"Потратить медные монеты"			
 
 		}		
 

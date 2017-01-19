@@ -3,6 +3,16 @@ var character = {
 	loadValues: function(doc) {	
 		var xpField = doc.getField("xp");
 		this.xp = xpField.value;
+		var astralDiamondsField = doc.getField("aDiamonds");
+		this.money.astralDiamonds = astralDiamondsField.value;		
+		var platinumField = doc.getField("platinum");
+		this.money.platinum = platinumField.value;				
+		var goldField = doc.getField("gold");
+		this.money.gold = goldField.value;		
+		var silverField = doc.getField("silver");
+		this.money.silver = silverField.value;		
+		var copperField = doc.getField("copper");
+		this.money.copper = copperField.value;		
 	},
 
 	updateView: function(doc) {		
@@ -11,14 +21,45 @@ var character = {
 			xpField.value = this.xp;	
 		}		
 		var levelField = doc.getField("level");
-		var newLevel = level.fromXp(this.xp); 
+		var newLevel = this.getLevel(); 
 		if(levelField.value != newLevel){
 			levelField.value = newLevel;	
 		}
-		
+		var astralDiamondsField = doc.getField("aDiamonds");
+		if(astralDiamondsField.value != this.money.astralDiamonds){
+			astralDiamondsField.value = this.money.astralDiamonds;	
+		}				
+		var platinumField = doc.getField("platinum");
+		if(platinumField.value != this.money.platinum){
+			platinumField.value = this.money.platinum;	
+		}		
+		var goldField = doc.getField("gold");
+		if(goldField.value != this.money.gold){
+			goldField.value = this.money.gold;	
+		}		
+		var silverField = doc.getField("silver");
+		if(silverField.value != this.money.silver){
+			silverField.value = this.money.silver;	
+		}		
+		var copperField = doc.getField("copper");
+		if(copperField.value != this.money.copper){
+			copperField.value = this.money.copper;	
+		}										
 	},	
 
 	xp: 0,
+
+	getLevel: function(){
+		return level.fromXp(this.xp);
+	},
+
+	money: {
+		astralDiamonds: 0,
+		platinum: 0,
+		gold: 0,
+		silver: 0,
+		copper: 0
+	},
 
 	class: "",
 	paragonPath: "-",
