@@ -1,4 +1,4 @@
-var character = {
+var PlayerCharacter = {
 
 	loadValues: function(doc) {	
 		var xpField = doc.getField("xp");

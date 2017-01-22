@@ -1,4 +1,4 @@
-var version = "0.0.4";
+var version = "0.0.5";
 l10n.currentLanguage = "eng";
 
 function clearFieldHandlers(field) {
@@ -23,110 +23,110 @@ function initFields() {
 	
 	var portraitButton = this.getField("portraitButton");
 	clearFieldHandlers(portraitButton);	
-	portraitButton.setAction("MouseUp", "handlers.portraitButton.mouseUp(event);");	
+	portraitButton.setAction("MouseUp", "Handlers.portraitButton.mouseUp(event);");	
 	portraitButton.userName = l10n.translate("FIELD_HINT_PORTRAIT");
 
 	var addXpButton = this.getField("addXpButton");	
 	clearFieldHandlers(addXpButton);
-	addXpButton.setAction("MouseUp", "handlers.addXpButton.mouseUp(event);");		
+	addXpButton.setAction("MouseUp", "Handlers.addXpButton.mouseUp(event);");		
 
 	var xpField = this.getField("xp");
 	clearFieldHandlers(xpField);
-	xpField.setAction("Validate","handlers.xp.validate(event);");	
-	xpField.setAction("Calculate","handlers.xp.onChange(event);");
+	xpField.setAction("Validate","Handlers.xp.validate(event);");	
+	xpField.setAction("Calculate","Handlers.xp.onChange(event);");
 	var levelField = this.getField("level");	
 	clearFieldHandlers(levelField);
-	levelField.setAction("Validate","handlers.level.validate(event);");	
-	levelField.setAction("Calculate","handlers.level.onChange(event);");
+	levelField.setAction("Validate","Handlers.level.validate(event);");	
+	levelField.setAction("Calculate","Handlers.level.onChange(event);");
 
 	var aDiamondsField = this.getField("aDiamonds");	
 	clearFieldHandlers(aDiamondsField);
-	aDiamondsField.setAction("Validate","handlers.money.validate(event);");	
-	aDiamondsField.setAction("Calculate","handlers.money.onChange(event,\"astralDiamonds\");");
+	aDiamondsField.setAction("Validate","Handlers.money.validate(event);");	
+	aDiamondsField.setAction("Calculate","Handlers.money.onChange(event,\"astralDiamonds\");");
 	var addAstralDiamondsButton = this.getField("addADiamonds");	
 	clearFieldHandlers(addAstralDiamondsButton);
-	addAstralDiamondsButton.setAction("MouseUp", "handlers.addADiamonds.mouseUp(event);");	
+	addAstralDiamondsButton.setAction("MouseUp", "Handlers.addADiamonds.mouseUp(event);");	
 	var spendAstralDiamondsButton = this.getField("spendADiamonds");	
 	clearFieldHandlers(spendAstralDiamondsButton);
-	spendAstralDiamondsButton.setAction("MouseUp", "handlers.spendADiamonds.mouseUp(event);");		
+	spendAstralDiamondsButton.setAction("MouseUp", "Handlers.spendADiamonds.mouseUp(event);");		
 
 	var platinumField = this.getField("platinum");	
 	clearFieldHandlers(platinumField);
-	platinumField.setAction("Validate","handlers.money.validate(event);");	
-	platinumField.setAction("Calculate","handlers.money.onChange(event,\"platinum\");");
+	platinumField.setAction("Validate","Handlers.money.validate(event);");	
+	platinumField.setAction("Calculate","Handlers.money.onChange(event,\"platinum\");");
 	var addPlatinumButton = this.getField("addPlatinum");	
 	clearFieldHandlers(addPlatinumButton);
-	addPlatinumButton.setAction("MouseUp", "handlers.addPlatinum.mouseUp(event);");	
+	addPlatinumButton.setAction("MouseUp", "Handlers.addPlatinum.mouseUp(event);");	
 	var spendPlatinumButton = this.getField("spendPlatinum");	
 	clearFieldHandlers(spendPlatinumButton);
-	spendPlatinumButton.setAction("MouseUp", "handlers.spendPlatinum.mouseUp(event);");	
+	spendPlatinumButton.setAction("MouseUp", "Handlers.spendPlatinum.mouseUp(event);");	
 
 	var goldField = this.getField("gold");	
 	clearFieldHandlers(goldField);
-	goldField.setAction("Validate","handlers.money.validate(event);");	
-	goldField.setAction("Calculate","handlers.money.onChange(event,\"gold\");");
+	goldField.setAction("Validate","Handlers.money.validate(event);");	
+	goldField.setAction("Calculate","Handlers.money.onChange(event,\"gold\");");
 	var addGoldButton = this.getField("addGold");	
 	clearFieldHandlers(addGoldButton);
-	addGoldButton.setAction("MouseUp", "handlers.addGold.mouseUp(event);");	
+	addGoldButton.setAction("MouseUp", "Handlers.addGold.mouseUp(event);");	
 	var spendGoldButton = this.getField("spendGold");	
 	clearFieldHandlers(spendGoldButton);
-	spendGoldButton.setAction("MouseUp", "handlers.spendGold.mouseUp(event);");	
+	spendGoldButton.setAction("MouseUp", "Handlers.spendGold.mouseUp(event);");	
 
 	var silverField = this.getField("silver");	
 	clearFieldHandlers(silverField);
-	silverField.setAction("Validate","handlers.money.validate(event);");	
-	silverField.setAction("Calculate","handlers.money.onChange(event,\"silver\");");
+	silverField.setAction("Validate","Handlers.money.validate(event);");	
+	silverField.setAction("Calculate","Handlers.money.onChange(event,\"silver\");");
 	var addSilverButton = this.getField("addSilver");	
 	clearFieldHandlers(addSilverButton);
-	addSilverButton.setAction("MouseUp", "handlers.addSilver.mouseUp(event);");	
+	addSilverButton.setAction("MouseUp", "Handlers.addSilver.mouseUp(event);");	
 	var spendSilverButton = this.getField("spendSilver");	
 	clearFieldHandlers(spendSilverButton);
-	spendSilverButton.setAction("MouseUp", "handlers.spendSilver.mouseUp(event);");	
+	spendSilverButton.setAction("MouseUp", "Handlers.spendSilver.mouseUp(event);");	
 
 	var copperField = this.getField("copper");	
 	clearFieldHandlers(copperField);
-	copperField.setAction("Validate","handlers.money.validate(event);");	
-	copperField.setAction("Calculate","handlers.money.onChange(event,\"copper\");");
+	copperField.setAction("Validate","Handlers.money.validate(event);");	
+	copperField.setAction("Calculate","Handlers.money.onChange(event,\"copper\");");
 	var addCopperButton = this.getField("addCopper");	
 	clearFieldHandlers(addCopperButton);
-	addCopperButton.setAction("MouseUp", "handlers.addCopper.mouseUp(event);");	
+	addCopperButton.setAction("MouseUp", "Handlers.addCopper.mouseUp(event);");	
 	var spendCopperButton = this.getField("spendCopper");	
 	clearFieldHandlers(spendCopperButton);
-	spendCopperButton.setAction("MouseUp", "handlers.spendCopper.mouseUp(event);");	
+	spendCopperButton.setAction("MouseUp", "Handlers.spendCopper.mouseUp(event);");	
 
 	var strField = this.getField("abilityStrScore");	
 	clearFieldHandlers(strField);
-	strField.setAction("Validate","handlers.abilityScore.validate(event);");	
-	strField.setAction("Calculate","handlers.abilityScore.onChange(event,\"str\");");	
+	strField.setAction("Validate","Handlers.abilityScore.validate(event);");	
+	strField.setAction("Calculate","Handlers.abilityScore.onChange(event,\"str\");");	
 	var conField = this.getField("abilityConScore");	
 	clearFieldHandlers(conField);
-	conField.setAction("Validate","handlers.abilityScore.validate(event);");	
-	conField.setAction("Calculate","handlers.abilityScore.onChange(event,\"con\");");
+	conField.setAction("Validate","Handlers.abilityScore.validate(event);");	
+	conField.setAction("Calculate","Handlers.abilityScore.onChange(event,\"con\");");
 	var dexField = this.getField("abilityDexScore");	
 	clearFieldHandlers(dexField);
-	dexField.setAction("Validate","handlers.abilityScore.validate(event);");	
-	dexField.setAction("Calculate","handlers.abilityScore.onChange(event,\"dex\");");
+	dexField.setAction("Validate","Handlers.abilityScore.validate(event);");	
+	dexField.setAction("Calculate","Handlers.abilityScore.onChange(event,\"dex\");");
 	var intField = this.getField("abilityIntScore");	
 	clearFieldHandlers(intField);
-	intField.setAction("Validate","handlers.abilityScore.validate(event);");	
-	intField.setAction("Calculate","handlers.abilityScore.onChange(event,\"int\");");
+	intField.setAction("Validate","Handlers.abilityScore.validate(event);");	
+	intField.setAction("Calculate","Handlers.abilityScore.onChange(event,\"int\");");
 	var wisField = this.getField("abilityWisScore");	
 	clearFieldHandlers(wisField);
-	wisField.setAction("Validate","handlers.abilityScore.validate(event);");	
-	wisField.setAction("Calculate","handlers.abilityScore.onChange(event,\"wis\");");
+	wisField.setAction("Validate","Handlers.abilityScore.validate(event);");	
+	wisField.setAction("Calculate","Handlers.abilityScore.onChange(event,\"wis\");");
 	var chaField = this.getField("abilityChaScore");	
 	clearFieldHandlers(chaField);
-	chaField.setAction("Validate","handlers.abilityScore.validate(event);");	
-	chaField.setAction("Calculate","handlers.abilityScore.onChange(event,\"cha\");");	
+	chaField.setAction("Validate","Handlers.abilityScore.validate(event);");	
+	chaField.setAction("Calculate","Handlers.abilityScore.onChange(event,\"cha\");");	
 
 	var initiativeMiscModField = this.getField("initiativeMiscMod");	
 	clearFieldHandlers(initiativeMiscModField);
-	initiativeMiscModField.setAction("Validate","handlers.initiativeMiscMod.validate(event);");		
-	initiativeMiscModField.setAction("Calculate","handlers.initiativeMiscMod.onChange(event);");
-	initiativeMiscModField.setAction("Format","handlers.initiativeMiscMod.format(event);");		
+	initiativeMiscModField.setAction("Validate","Handlers.initiativeMiscMod.validate(event);");		
+	initiativeMiscModField.setAction("Calculate","Handlers.initiativeMiscMod.onChange(event);");
+	initiativeMiscModField.setAction("Format","Handlers.initiativeMiscMod.format(event);");		
 
 }
 
 initFields();
-character.loadValues(this);
-character.updateView(this);
+PlayerCharacter.loadValues(this);
+PlayerCharacter.updateView(this);

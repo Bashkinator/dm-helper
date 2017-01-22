@@ -1,4 +1,4 @@
-var handlers = {
+var Handlers = {
 
 	portraitButton: {
 
@@ -20,8 +20,8 @@ var handlers = {
 			});
 			newXp = parseInt(newXp);
 			if(!Number.isNaN(newXp) && newXp > 0){
-				character.xp += newXp;
-				character.updateView(event.target.doc);			
+				PlayerCharacter.xp += newXp;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},
@@ -37,8 +37,8 @@ var handlers = {
 			});
 			newDiamonds = parseInt(newDiamonds);
 			if(!Number.isNaN(newDiamonds) && newDiamonds > 0){
-				character.money.astralDiamonds += newDiamonds;
-				character.updateView(event.target.doc);			
+				PlayerCharacter.money.astralDiamonds += newDiamonds;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -53,9 +53,9 @@ var handlers = {
 				cLabel: "-"
 			});
 			spentDiamonds = parseInt(spentDiamonds);
-			if(!Number.isNaN(spentDiamonds) && spentDiamonds > 0 && spentDiamonds <= character.money.astralDiamonds){
-				character.money.astralDiamonds -= spentDiamonds;
-				character.updateView(event.target.doc);			
+			if(!Number.isNaN(spentDiamonds) && spentDiamonds > 0 && spentDiamonds <= PlayerCharacter.money.astralDiamonds){
+				PlayerCharacter.money.astralDiamonds -= spentDiamonds;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -71,8 +71,8 @@ var handlers = {
 			});
 			newPlatinum = parseInt(newPlatinum);
 			if(!Number.isNaN(newPlatinum) && newPlatinum > 0){
-				character.money.platinum += newPlatinum;
-				character.updateView(event.target.doc);			
+				PlayerCharacter.money.platinum += newPlatinum;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -87,9 +87,9 @@ var handlers = {
 				cLabel: "-"
 			});
 			spentPlatinum = parseInt(spentPlatinum);
-			if(!Number.isNaN(spentPlatinum) && spentPlatinum > 0 && spentPlatinum <= character.money.platinum){
-				character.money.platinum -= spentPlatinum;
-				character.updateView(event.target.doc);			
+			if(!Number.isNaN(spentPlatinum) && spentPlatinum > 0 && spentPlatinum <= PlayerCharacter.money.platinum){
+				PlayerCharacter.money.platinum -= spentPlatinum;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -105,8 +105,8 @@ var handlers = {
 			});
 			newGold = parseInt(newGold);
 			if(!Number.isNaN(newGold) && newGold > 0){
-				character.money.gold += newGold;
-				character.updateView(event.target.doc);			
+				PlayerCharacter.money.gold += newGold;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -121,9 +121,9 @@ var handlers = {
 				cLabel: "-"
 			});
 			spentGold = parseInt(spentGold);
-			if(!Number.isNaN(spentGold) && spentGold > 0 && spentGold <= character.money.gold){
-				character.money.gold -= spentGold;
-				character.updateView(event.target.doc);			
+			if(!Number.isNaN(spentGold) && spentGold > 0 && spentGold <= PlayerCharacter.money.gold){
+				PlayerCharacter.money.gold -= spentGold;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -139,8 +139,8 @@ var handlers = {
 			});
 			newSilver = parseInt(newSilver);
 			if(!Number.isNaN(newSilver) && newSilver > 0){
-				character.money.silver += newSilver;
-				character.updateView(event.target.doc);			
+				PlayerCharacter.money.silver += newSilver;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -155,9 +155,9 @@ var handlers = {
 				cLabel: "-"
 			});
 			spentSilver = parseInt(spentSilver);
-			if(!Number.isNaN(spentSilver) && spentSilver > 0 && spentSilver <= character.money.silver){
-				character.money.silver -= spentSilver;
-				character.updateView(event.target.doc);			
+			if(!Number.isNaN(spentSilver) && spentSilver > 0 && spentSilver <= PlayerCharacter.money.silver){
+				PlayerCharacter.money.silver -= spentSilver;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -173,8 +173,8 @@ var handlers = {
 			});
 			newCopper = parseInt(newCopper);
 			if(!Number.isNaN(newCopper) && newCopper > 0){
-				character.money.copper += newCopper;
-				character.updateView(event.target.doc);			
+				PlayerCharacter.money.copper += newCopper;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},	
@@ -189,9 +189,9 @@ var handlers = {
 				cLabel: "-"
 			});
 			spentCopper = parseInt(spentCopper);
-			if(!Number.isNaN(spentCopper) && spentCopper > 0 && spentCopper <= character.money.copper){
-				character.money.copper -= spentCopper;
-				character.updateView(event.target.doc);			
+			if(!Number.isNaN(spentCopper) && spentCopper > 0 && spentCopper <= PlayerCharacter.money.copper){
+				PlayerCharacter.money.copper -= spentCopper;
+				PlayerCharacter.updateView(event.target.doc);			
 			}
 		}
 	},					
@@ -206,9 +206,9 @@ var handlers = {
 		onChange: function(event) {
 			if(!event) return;
 			var newXp = parseInt(event.value);
-			if(newXp != character.xp){
-				character.xp = newXp;
-				character.updateView(event.target.doc);
+			if(newXp != PlayerCharacter.xp){
+				PlayerCharacter.xp = newXp;
+				PlayerCharacter.updateView(event.target.doc);
 			}			
 		}
 	},	
@@ -223,18 +223,18 @@ var handlers = {
 		onChange: function(event) {
 			if(!event) return;
 			var newLevel = parseInt(event.value);
-			var oldLevel = character.getLevel();						
+			var oldLevel = PlayerCharacter.getLevel();						
 			if(newLevel != oldLevel){
 				if(newLevel>30){
-					character.extraLevels = newLevel - 30;
+					PlayerCharacter.extraLevels = newLevel - 30;
 					if(oldLevel<30){
-						character.xp = level.toXp(newLevel);
+						PlayerCharacter.xp = level.toXp(newLevel);
 					}					
 				}else{
-					character.extraLevels = 0
-					character.xp = level.toXp(newLevel);
+					PlayerCharacter.extraLevels = 0
+					PlayerCharacter.xp = level.toXp(newLevel);
 				}
-				character.updateView(event.target.doc);		
+				PlayerCharacter.updateView(event.target.doc);		
 			}
 			
 		}
@@ -250,9 +250,9 @@ var handlers = {
 		onChange: function(event, money) {
 			if(!event) return;
 			var newMoney = parseInt(event.value);
-			if(newMoney != character.money[money]){
-				character.money[money] = newMoney;
-				character.updateView(event.target.doc);
+			if(newMoney != PlayerCharacter.money[money]){
+				PlayerCharacter.money[money] = newMoney;
+				PlayerCharacter.updateView(event.target.doc);
 			}			
 		}
 	},
@@ -268,9 +268,9 @@ var handlers = {
 		onChange: function(event, ability) {
 			if(!event) return;
 			var newScore = parseInt(event.value);
-			if(newScore != character.abilities[ability]){
-				character.abilities[ability] = newScore;
-				character.updateView(event.target.doc);
+			if(newScore != PlayerCharacter.abilities[ability]){
+				PlayerCharacter.abilities[ability] = newScore;
+				PlayerCharacter.updateView(event.target.doc);
 			}			
 		}
 	},						
@@ -287,13 +287,13 @@ var handlers = {
 			if(!event) return;
 			var val = parseInt(event.value);
 			event.value = ((val>0)?"+":"") + val;
-			character.updateView(event.target.doc);	
+			PlayerCharacter.updateView(event.target.doc);	
 		},
 		onChange: function(event) {
 			if(!event) return;
 			var newMod = parseInt(event.value);
-			if(newMod != character.initiativeMiscBonus){
-				character.initiativeMiscBonus = newMod;				
+			if(newMod != PlayerCharacter.initiativeMiscBonus){
+				PlayerCharacter.initiativeMiscBonus = newMod;				
 			}			
 		}
 	}	
