@@ -35,7 +35,11 @@ var PlayerCharacter = {
 		this.abilities.cha = chaField.value;
 
 		var initiativeMiscField = doc.getField("initiativeMiscMod");
-		this.initiativeMiscBonus = initiativeMiscField.value;				
+		this.initiativeMiscBonus = initiativeMiscField.value;
+
+		var deityDropdown = doc.getField("deityDropdown");
+		var deityIndex = deityDropdown.currentValueIndices;
+		this.deity = (deityIndex>=0) ? deityDropdown.getItemAt(deityIndex) : deityDropdown.value;
 
 	},
 
@@ -46,6 +50,7 @@ var PlayerCharacter = {
 		}		
 		var levelField = doc.getField("level");
 		var newLevel = this.getLevel(); 		
+		var levelMod = this.getLevelMod();
 		var oldLevel = parseInt(levelField.value);		
 		if( (oldLevel!=newLevel) && ((newLevel!=30) || (oldLevel<30)) ){			
 			levelField.value = newLevel;				
@@ -144,12 +149,20 @@ var PlayerCharacter = {
 		var initiativeDexModField = doc.getField("initiativeDexMod");
 		initiativeDexModField.value = ((dexMod>0)?"+":"")+dexMod;		
 		var initiativeLevelModField = doc.getField("initiativeLevelMod");
-		var levelMod = this.getLevelMod();
 		initiativeLevelModField.value = ((levelMod>0)?"+":"")+levelMod;		
 		var initiativeMiscField = doc.getField("initiativeMiscMod");
 		if(initiativeMiscField.value != this.initiativeMiscBonus){
 			initiativeMiscField.value = this.initiativeMiscBonus;
 		}			
+
+		var deityDropdown = doc.getField("deityDropdown");
+		var deityIndex = findItem(deityDropdown, this.deity);
+		if(deityIndex>=0){
+			deityDropdown.currentValueIndices = deityIndex;	
+		}else{
+			deityDropdown.value = this.deity;			
+		} 
+		
 						
 	},	
 
@@ -181,6 +194,8 @@ var PlayerCharacter = {
 	race: "",
 
 	size: "",
+
+	deity: "",
 
 	abilities: {
 		str: 0,

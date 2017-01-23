@@ -296,6 +296,17 @@ var Handlers = {
 				PlayerCharacter.initiativeMiscBonus = newMod;				
 			}			
 		}
+	},
+
+	deityDropdown: {
+		onChange: function(event) {
+			if(!event) return;
+			var newDeityIndex = event.target.currentValueIndices;
+			var newDeity = (newDeityIndex>=0) ? event.target.getItemAt(newDeityIndex) : event.value;
+			if(newDeity != PlayerCharacter.deity){
+				PlayerCharacter.deity = newDeity;				
+			}			
+		}
 	}	
 
 };

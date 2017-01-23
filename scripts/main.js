@@ -1,5 +1,15 @@
-var version = "0.0.5";
+var version = "0.0.6";
 l10n.currentLanguage = "eng";
+
+function findItem(dropdown, value) {
+	if(!dropdown) return -1;
+	for(var i = 0; i < dropdown.numItems; i++){
+		if(dropdown.getItemAt(i) == value){
+			return i;
+		}
+	}
+	return -1;
+}
 
 function clearFieldHandlers(field) {
 	if(!field) return;
@@ -125,8 +135,20 @@ function initFields() {
 	initiativeMiscModField.setAction("Calculate","Handlers.initiativeMiscMod.onChange(event);");
 	initiativeMiscModField.setAction("Format","Handlers.initiativeMiscMod.format(event);");		
 
+	var deityDropdown = this.getField("deityDropdown");
+	clearFieldHandlers(deityDropdown);
+	var deities = [];
+	for(var i = 0; i < Deities.length; i++){
+		deities.push(l10n.translate(Deities[i]));
+	}
+	deities.sort();
+	deities.unshift(" ");
+	deityDropdown.setItems(deities);
+	deityDropdown.setAction("Calculate","Handlers.deityDropdown.onChange(event);")
+
+
 }
 
-initFields();
 PlayerCharacter.loadValues(this);
+initFields();
 PlayerCharacter.updateView(this);

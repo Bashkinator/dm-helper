@@ -1,7 +1,7 @@
 var PlayerRace = {
 	
 	RACE_DRAGONBORN: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			history: 2,
@@ -9,7 +9,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_DWARF: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 5,
 		skillMods: {
 			endurance: 2,
@@ -17,7 +17,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_ELADRIN: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			arcana: 2,
@@ -25,7 +25,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_ELF: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 7,
 		skillMods: {
 			nature: 2,
@@ -33,7 +33,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_HALF_ELF: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			diplomacy: 2,
@@ -41,7 +41,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_HALFLING: {
-		size: SIZE_SMALL,
+		size: "SIZE_SMALL",
 		speed: 6,
 		skillMods: {
 			acrobatics: 2,
@@ -49,12 +49,12 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_HUMAN: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {}
 	}, 
 	RACE_TIEFLING: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			bluff: 2,
@@ -62,7 +62,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_DEVA: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			history: 2,
@@ -70,7 +70,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_GNOME: {
-		size: SIZE_SMALL,
+		size: "SIZE_SMALL",
 		speed: 5,
 		skillMods: {
 			arcana: 2,
@@ -78,7 +78,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_GOLIATH: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			athletics: 2,
@@ -86,7 +86,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_HALF_ORC: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			endurance: 2,
@@ -94,7 +94,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_LT_SHIFTER: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			endurance: 2,
@@ -102,7 +102,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_RC_SHIFTER: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			acrobatics: 2,
@@ -110,7 +110,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_GITHZERAI: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			acrobatics: 2,
@@ -118,7 +118,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_MINOTAUR: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			perception: 2,
@@ -126,7 +126,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_SHARDMIND: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			endurance: 2,
@@ -134,7 +134,7 @@ var PlayerRace = {
 		}
 	}, 
 	RACE_WILDEN: {
-		size: SIZE_MEDIUM,
+		size: "SIZE_MEDIUM",
 		speed: 6,
 		skillMods: {
 			nature: 2,
