@@ -1,4 +1,4 @@
-var level = {
+var Level = {
 
 	fromXp: function(xp) {
 		if (1000000 <= xp) {

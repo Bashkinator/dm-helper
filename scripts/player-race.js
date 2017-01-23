@@ -1,4 +1,4 @@
-var Race = {
+var PlayerRace = {
 	
 	RACE_DRAGONBORN: {
 		size: SIZE_MEDIUM,

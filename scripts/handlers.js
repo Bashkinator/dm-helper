@@ -228,11 +228,11 @@ var Handlers = {
 				if(newLevel>30){
 					PlayerCharacter.extraLevels = newLevel - 30;
 					if(oldLevel<30){
-						PlayerCharacter.xp = level.toXp(newLevel);
+						PlayerCharacter.xp = Level.toXp(newLevel);
 					}					
 				}else{
 					PlayerCharacter.extraLevels = 0
-					PlayerCharacter.xp = level.toXp(newLevel);
+					PlayerCharacter.xp = Level.toXp(newLevel);
 				}
 				PlayerCharacter.updateView(event.target.doc);		
 			}

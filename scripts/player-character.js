@@ -157,7 +157,7 @@ var PlayerCharacter = {
 	extraLevels: 0,
 
 	getLevel: function(){		
-		return level.fromXp(this.xp) + this.extraLevels;
+		return Level.fromXp(this.xp) + this.extraLevels;
 	},
 
 	getLevelMod: function(){
