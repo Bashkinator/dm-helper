@@ -14,6 +14,16 @@ var l10n = {
 		return (this.strings[lang][str]) ? this.strings[lang][str] : "";
 	},
 
+	getMoneyConstant: function(money){
+		switch(money){
+			case "astralDiamonds": return "ADIAMONDS";
+			case "platinum": return "PLATINUM";
+			case "gold": return "GOLD";
+			case "silver": return "SILVER";
+			case "copper": return "COPPER";															
+		}
+	},
+
 	strings: {
 
 		eng: {
@@ -98,6 +108,7 @@ var l10n = {
 			PARAGON_PATH_ANGELIC_AVENGER: 					"Angelic avenger",
 			PARAGON_PATH_DIVINE_ORACLE: 					"Divine oracle",
 			PARAGON_PATH_RADIANT_SERVANT: 					"Radiant servant",
+			PARAGON_PATH_WARPRIEST: 						"Warpriest",											
 			PARAGON_PATH_IRON_VANGUARD: 					"Iron vanguard",
 			PARAGON_PATH_KENSEI: 							"Kensei",
 			PARAGON_PATH_PIT_FIGHTER: 						"Pit fighter",
@@ -126,7 +137,7 @@ var l10n = {
 			PARAGON_PATH_SPELLSTORM_MAGE: 					"Spellstorm mage",
 			PARAGON_PATH_WIZARD_OF_THE_SPIRAL_TOWER: 		"Wizard of the Spiral Tower",
 			PARAGON_PATH_HAMMER_OF_JUDGMENT: 				"Hammer of Judgment",
-			PARAGON_PATH_Oathsworn: 						"Oathsworn",
+			PARAGON_PATH_OATHSWORN: 						"Oathsworn",
 			PARAGON_PATH_UNVEILED_VISAGE: 					"Unveiled Visage",
 			PARAGON_PATH_ZEALOUS_ASSASSIN: 					"Zealous Assassin",
 			PARAGON_PATH_BEAR_WARRIOR: 						"Bear Warrior",
@@ -139,7 +150,7 @@ var l10n = {
 			PARAGON_PATH_WAR_CHANTER: 						"War Chanter",
 			PARAGON_PATH_BLOOD_MOON_STALKER: 				"Blood Moon Stalker",
 			PARAGON_PATH_GUARDIAN_OF_THE_LIVING_GATE: 		"Guardian of the Living Gate",
-			PARAGON_PATH_Keeper_of_the_Hidden_Flame: 		"Keeper of the Hidden Flame",
+			PARAGON_PATH_KEEPER_OF_THE_HIDDEN_FLAME: 		"Keeper of the Hidden Flame",
 			PARAGON_PATH_SKY_HUNTER: 						"Sky Hunter",
 			PARAGON_PATH_ANGELIC_ASPECT: 					"Angelic Aspect",
 			PARAGON_PATH_BLIGHTSPEAKER: 					"Blightspeaker",

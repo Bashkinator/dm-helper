@@ -41,6 +41,18 @@ var PlayerCharacter = {
 		var deityIndex = deityDropdown.currentValueIndices;
 		this.deity = (deityIndex>=0) ? deityDropdown.getItemAt(deityIndex) : deityDropdown.value;
 
+		var classDropdown = doc.getField("classDropdown");
+		var classIndex = classDropdown.currentValueIndices;
+		this.class = (classIndex>=0) ? classDropdown.getItemAt(classIndex) : classDropdown.value;		
+
+		var paragonPathDropdown = doc.getField("paragonPathDropdown");
+		var paragonPathIndex = paragonPathDropdown.currentValueIndices;
+		this.paragonPath = (paragonPathIndex>=0) ? paragonPathDropdown.getItemAt(paragonPathIndex) : paragonPathDropdown.value;				
+
+		var epicDestinyDropdown = doc.getField("epicDestinyDropdown");
+		var epicDestinyIndex = epicDestinyDropdown.currentValueIndices;
+		this.epicDestiny = (epicDestinyIndex>=0) ? epicDestinyDropdown.getItemAt(epicDestinyIndex) : epicDestinyDropdown.value;						
+
 	},
 
 	updateView: function(doc) {		
@@ -83,10 +95,10 @@ var PlayerCharacter = {
 		}
 		var strModField = doc.getField("abilityStrMod");
 		var strMod = this.getAbilityMod("str");
-		strModField.value = ((strMod>0)?"+":"")+strMod;
+		strModField.value = signedNumberToString(strMod);
 		var strModLevField = doc.getField("abilityStrModLev");
 		var strModLev = this.getAbilityModPlusLevel("str");
-		strModLevField.value = ((strModLev>0)?"+":"")+strModLev;		
+		strModLevField.value = signedNumberToString(strModLev);		
 		
 		var conField = doc.getField("abilityConScore");
 		if(conField.value != this.abilities.con){
@@ -94,10 +106,10 @@ var PlayerCharacter = {
 		}
 		var conModField = doc.getField("abilityConMod");		
 		var conMod = this.getAbilityMod("con");
-		conModField.value = ((conMod>0)?"+":"")+conMod;
+		conModField.value = signedNumberToString(conMod);
 		var conModLevField = doc.getField("abilityConModLev");
 		var conModLev = this.getAbilityModPlusLevel("con");
-		conModLevField.value = ((conModLev>0)?"+":"")+conModLev;				
+		conModLevField.value = signedNumberToString(conModLev);				
 		
 		var dexField = doc.getField("abilityDexScore");
 		if(dexField.value != this.abilities.dex){
@@ -105,10 +117,10 @@ var PlayerCharacter = {
 		}
 		var dexModField = doc.getField("abilityDexMod");
 		var dexMod = this.getAbilityMod("dex");
-		dexModField.value = ((dexMod>0)?"+":"")+dexMod;
+		dexModField.value = signedNumberToString(dexMod);
 		var dexModLevField = doc.getField("abilityDexModLev");
 		var dexModLev = this.getAbilityModPlusLevel("dex");
-		dexModLevField.value = ((dexModLev>0)?"+":"")+dexModLev;				
+		dexModLevField.value = signedNumberToString(dexModLev);				
 		
 		var intField = doc.getField("abilityIntScore");
 		if(intField.value != this.abilities.int){
@@ -116,10 +128,10 @@ var PlayerCharacter = {
 		}
 		var intModField = doc.getField("abilityIntMod");
 		var intMod = this.getAbilityMod("int");
-		intModField.value = ((intMod>0)?"+":"")+intMod;	
+		intModField.value = signedNumberToString(intMod);	
 		var intModLevField = doc.getField("abilityIntModLev");
 		var intModLev = this.getAbilityModPlusLevel("int");
-		intModLevField.value = ((intModLev>0)?"+":"")+intModLev;					
+		intModLevField.value = signedNumberToString(intModLev);					
 
 		var wisField = doc.getField("abilityWisScore");
 		if(wisField.value != this.abilities.wis){
@@ -127,10 +139,10 @@ var PlayerCharacter = {
 		}
 		var wisModField = doc.getField("abilityWisMod");
 		var wisMod = this.getAbilityMod("wis");
-		wisModField.value = ((wisMod>0)?"+":"")+wisMod;
+		wisModField.value = signedNumberToString(wisMod);
 		var wisModLevField = doc.getField("abilityWisModLev");
 		var wisModLev = this.getAbilityModPlusLevel("wis");
-		wisModLevField.value = ((wisModLev>0)?"+":"")+wisModLev;				
+		wisModLevField.value = signedNumberToString(wisModLev);				
 
 		var chaField = doc.getField("abilityChaScore");
 		if(chaField.value != this.abilities.cha){
@@ -138,31 +150,121 @@ var PlayerCharacter = {
 		}
 		var chaModField = doc.getField("abilityChaMod");
 		var chaMod = this.getAbilityMod("cha");
-		chaModField.value = ((chaMod>0)?"+":"")+chaMod;				
+		chaModField.value = signedNumberToString(chaMod);				
 		var chaModLevField = doc.getField("abilityChaModLev");
 		var chaModLev = this.getAbilityModPlusLevel("cha");
-		chaModLevField.value = ((chaModLev>0)?"+":"")+chaModLev;				
+		chaModLevField.value = signedNumberToString(chaModLev);				
 
 		var initiativeField = doc.getField("initiativeScore");
 		var initiative = this.getInitiative();
-		initiativeField.value = ((initiative>0)?"+":"")+initiative;
+		initiativeField.value = signedNumberToString(initiative);
 		var initiativeDexModField = doc.getField("initiativeDexMod");
-		initiativeDexModField.value = ((dexMod>0)?"+":"")+dexMod;		
+		initiativeDexModField.value = signedNumberToString(dexMod);		
 		var initiativeLevelModField = doc.getField("initiativeLevelMod");
-		initiativeLevelModField.value = ((levelMod>0)?"+":"")+levelMod;		
+		initiativeLevelModField.value = signedNumberToString(levelMod);		
 		var initiativeMiscField = doc.getField("initiativeMiscMod");
 		if(initiativeMiscField.value != this.initiativeMiscBonus){
-			initiativeMiscField.value = this.initiativeMiscBonus;
+			initiativeMiscField.value = signedNumberToString(this.initiativeMiscBonus);
 		}			
 
-		var deityDropdown = doc.getField("deityDropdown");
-		var deityIndex = findItem(deityDropdown, this.deity);
-		if(deityIndex>=0){
-			deityDropdown.currentValueIndices = deityIndex;	
+		var deityDropdown = doc.getField("deityDropdown");		
+		if(deityDropdown.value != this.deity){
+			var deityIndex = findItem(deityDropdown, this.deity);
+			if(deityIndex>=0){
+				deityDropdown.currentValueIndices = deityIndex;		
+			}else{
+				deityDropdown.value = this.deity;
+			}	
+		}
+
+		var classDropdown = doc.getField("classDropdown");		
+
+		if( (classDropdown.value != this.class) && classDropdown.value) {
+			var classIndex = findItem(classDropdown, this.class);
+			if(classIndex>=0){
+				classDropdown.currentValueIndices = classIndex;		
+			}else{
+				classDropdown.value = this.class;
+			}
+		}	
+
+		var playerLevel = this.getLevel();
+
+		var paragonPathDropdown = doc.getField("paragonPathDropdown");
+		var paragonPathOldValue = this.paragonPath;
+		var paragonPathOldIndex = findItem(paragonPathDropdown, this.paragonPath);
+		var paragonPaths = [];
+		if(playerLevel>10){
+			var raceData = PlayerRace[this.race];
+			if(raceData){
+				for(var i = 0; i < raceData.paragonPaths.length; i++){
+					paragonPaths.push([l10n.translate(raceData.paragonPaths[i]),raceData.paragonPaths[i]]);
+				}
+			}
+			var classData = PlayerClass[this.class];
+			if(classData){
+				for(var i = 0; i < classData.paragonPaths.length; i++){
+					paragonPaths.push([l10n.translate(classData.paragonPaths[i]),classData.paragonPaths[i]]);
+				}
+			}				
+		}
+		paragonPathDropdown.clearItems();
+		if(paragonPaths.length>0){
+			paragonPaths.sort();
+			paragonPathDropdown.setItems(paragonPaths);
+		}		
+		if(playerLevel>10){
+			this.paragonPath = paragonPathOldValue;
 		}else{
-			deityDropdown.value = this.deity;			
-		} 
+			this.paragonPath = "-";
+		}		
 		
+		if(paragonPathDropdown.value != this.paragonPath){						
+			if(paragonPathOldIndex>=0){
+				var paragonPathIndex = findItem(paragonPathDropdown, this.paragonPath);
+				if(paragonPathIndex>=0){
+					paragonPathDropdown.currentValueIndices = paragonPathIndex;		
+				}else{
+					paragonPathDropdown.value = "-";
+				}
+			}else if(playerLevel>10){				 				
+				paragonPathDropdown.value = this.paragonPath;
+			}
+		}	
+
+		var epicDestinyDropdown = doc.getField("epicDestinyDropdown");
+		var epicDestinyOldValue = this.epicDestiny;
+		var epicDestinyOldIndex = findItem(epicDestinyDropdown, this.epicDestiny);
+		var epicDestinies = [];		
+		for (var destiny in PlayerEpicDestinies) {
+		    if (PlayerEpicDestinies.hasOwnProperty(destiny) && PlayerEpicDestinies[destiny].isPrerequisitesOk(this)) {
+		        epicDestinies.push([l10n.translate(destiny),destiny]);
+		    }
+		}		
+		epicDestinyDropdown.clearItems();
+		if(epicDestinies.length>0){
+			epicDestinies.sort();			
+			epicDestinyDropdown.setItems(epicDestinies);
+		}		
+		if(playerLevel>20){
+			this.epicDestiny = epicDestinyOldValue;	
+		}else{
+			this.epicDestiny = "-";
+		}		
+		if(epicDestinyDropdown.value != this.epicDestiny){						
+			if(epicDestinyOldIndex>=0){
+				var epicDestinyIndex = findItem(epicDestinyDropdown, this.epicDestiny);
+				if(epicDestinyIndex>=0){
+					epicDestinyDropdown.currentValueIndices = epicDestinyIndex;		
+				}else{
+					epicDestinyDropdown.value = "-";
+				}
+			}else{				 				
+				epicDestinyDropdown.value = this.epicDestiny;
+			}
+		}			
+
+			
 						
 	},	
 
@@ -187,15 +289,41 @@ var PlayerCharacter = {
 		copper: 0
 	},
 
-	class: "",
+	class: "-",
 	paragonPath: "-",
 	epicDestiny: "-",
 
-	race: "",
+	setClassData: function(newClass){
+		for (var defense in this.defenses) {
+		    if (this.defenses.hasOwnProperty(defense)) {
+		        if(newClass.defenseMods[defense]){
+		        	this.defenses[defense].classMod = newClass.defenseMods[defense];
+		        }else{
+		        	this.defenses[defense].classMod = 0;
+		        }
+		    }
+		}
+		var level = this.getLevel();	
+		var conMod = this.getAbilityMod("con");	
+		maxHp = newClass.startHits + conMod + newClass.hitsByLevel*(level-1);
+		surgeValue = maxHp/4;
+		surgesPerDay = newClass.surgesByDay + conMod;
+		for (var skill in this.skills) {
+		    if (this.skills.hasOwnProperty(skill)) {
+		    	if(newClass.skills.includes(skill)){
+		    		this.skills[skill].trainedBonus = 5;
+		    	}else{
+		    		this.skills[skill].trainedBonus = 0;
+		    	}
+		    }
+		}		
+	},
 
-	size: "",
+	race: "-",
 
-	deity: "",
+	size: "-",
+
+	deity: "-",
 
 	abilities: {
 		str: 0,

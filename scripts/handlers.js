@@ -2,7 +2,7 @@ var Handlers = {
 
 	portraitButton: {
 
-		mouseUp: function(event) {
+		onClick: function(event) {
 			if(!event) return;
 			event.target.buttonImportIcon();
 		}
@@ -10,7 +10,7 @@ var Handlers = {
 	},
 
 	addXpButton: {
-		mouseUp: function(event) {
+		onClick: function(event) {
 			if(!event) return;
 			var newXp = app.response({
 				cQuestion: l10n.translate("ADD_XP_REPONSE_TEXT"),
@@ -26,175 +26,47 @@ var Handlers = {
 		}
 	},
 
-	addADiamonds: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var newDiamonds = app.response({
-				cQuestion: l10n.translate("ADD_ADIAMONDS_REPONSE_TEXT"),
-				cTitle: l10n.translate("ADD_ADIAMONDS_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "+"
-			});
-			newDiamonds = parseInt(newDiamonds);
-			if(!Number.isNaN(newDiamonds) && newDiamonds > 0){
-				PlayerCharacter.money.astralDiamonds += newDiamonds;
-				PlayerCharacter.updateView(event.target.doc);			
+	money: {
+		validate: function(event){
+			var newMoney = parseInt(event.value);
+			if(Number.isNaN(newMoney) || (newMoney<0)){
+				event.rc = false;
 			}
-		}
-	},	
-	
-	spendADiamonds: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var spentDiamonds = app.response({
-				cQuestion: l10n.translate("SPEND_ADIAMONDS_REPONSE_TEXT"),
-				cTitle: l10n.translate("SPEND_ADIAMONDS_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "-"
-			});
-			spentDiamonds = parseInt(spentDiamonds);
-			if(!Number.isNaN(spentDiamonds) && spentDiamonds > 0 && spentDiamonds <= PlayerCharacter.money.astralDiamonds){
-				PlayerCharacter.money.astralDiamonds -= spentDiamonds;
-				PlayerCharacter.updateView(event.target.doc);			
+		},
+		onChange: function(event, money) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
 			}
+			var newMoney = parseInt(event.value);
+			if(newMoney != PlayerCharacter.money[money]){
+				PlayerCharacter.money[money] = newMoney;
+				PlayerCharacter.updateView(event.target.doc);
+			}			
 		}
-	},	
+	},
 
-	addPlatinum: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var newPlatinum = app.response({
-				cQuestion: l10n.translate("ADD_PLATINUM_REPONSE_TEXT"),
-				cTitle: l10n.translate("ADD_PLATINUM_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "+"
-			});
-			newPlatinum = parseInt(newPlatinum);
-			if(!Number.isNaN(newPlatinum) && newPlatinum > 0){
-				PlayerCharacter.money.platinum += newPlatinum;
-				PlayerCharacter.updateView(event.target.doc);			
-			}
-		}
-	},	
-	
-	spendPlatinum: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var spentPlatinum = app.response({
-				cQuestion: l10n.translate("SPEND_PLATINUM_REPONSE_TEXT"),
-				cTitle: l10n.translate("SPEND_PLATINUM_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "-"
-			});
-			spentPlatinum = parseInt(spentPlatinum);
-			if(!Number.isNaN(spentPlatinum) && spentPlatinum > 0 && spentPlatinum <= PlayerCharacter.money.platinum){
-				PlayerCharacter.money.platinum -= spentPlatinum;
-				PlayerCharacter.updateView(event.target.doc);			
-			}
-		}
-	},	
 
-	addGold: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var newGold = app.response({
-				cQuestion: l10n.translate("ADD_GOLD_REPONSE_TEXT"),
-				cTitle: l10n.translate("ADD_GOLD_RESPONSE_TITLE"),
+	moneyButton: {
+		onClick: function(event, money, add){
+			var textStr = ((add)?"ADD":"SPEND") + "_" + l10n.getMoneyConstant(money) + "_REPONSE_TEXT";
+			var titleStr = ((add)?"ADD":"SPEND") + "_" + l10n.getMoneyConstant(money) + "_REPONSE_TITLE";
+			var dMoney = app.response({
+				cQuestion: l10n.translate(textStr),
+				cTitle: l10n.translate(titleStr),
 				cDefault: 0,
-				cLabel: "+"
+				cLabel: (add)?"+":"-"
 			});
-			newGold = parseInt(newGold);
-			if(!Number.isNaN(newGold) && newGold > 0){
-				PlayerCharacter.money.gold += newGold;
-				PlayerCharacter.updateView(event.target.doc);			
-			}
+			dMoney = parseInt(dMoney);
+			if(!Number.isNaN(dMoney) && dMoney > 0){
+				dMoney = (add) ? dMoney : -dMoney
+				if( add || (PlayerCharacter.money[money]+dMoney)>=0 ) {
+					PlayerCharacter.money[money] += dMoney;
+					PlayerCharacter.updateView(event.target.doc);								
+				}
+			}			
 		}
-	},	
-	
-	spendGold: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var spentGold = app.response({
-				cQuestion: l10n.translate("SPEND_GOLD_REPONSE_TEXT"),
-				cTitle: l10n.translate("SPEND_GOLD_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "-"
-			});
-			spentGold = parseInt(spentGold);
-			if(!Number.isNaN(spentGold) && spentGold > 0 && spentGold <= PlayerCharacter.money.gold){
-				PlayerCharacter.money.gold -= spentGold;
-				PlayerCharacter.updateView(event.target.doc);			
-			}
-		}
-	},	
-
-	addSilver: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var newSilver = app.response({
-				cQuestion: l10n.translate("ADD_SILVER_REPONSE_TEXT"),
-				cTitle: l10n.translate("ADD_SILVER_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "+"
-			});
-			newSilver = parseInt(newSilver);
-			if(!Number.isNaN(newSilver) && newSilver > 0){
-				PlayerCharacter.money.silver += newSilver;
-				PlayerCharacter.updateView(event.target.doc);			
-			}
-		}
-	},	
-	
-	spendSilver: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var spentSilver = app.response({
-				cQuestion: l10n.translate("SPEND_SILVER_REPONSE_TEXT"),
-				cTitle: l10n.translate("SPEND_SILVER_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "-"
-			});
-			spentSilver = parseInt(spentSilver);
-			if(!Number.isNaN(spentSilver) && spentSilver > 0 && spentSilver <= PlayerCharacter.money.silver){
-				PlayerCharacter.money.silver -= spentSilver;
-				PlayerCharacter.updateView(event.target.doc);			
-			}
-		}
-	},	
-
-	addCopper: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var newCopper = app.response({
-				cQuestion: l10n.translate("ADD_COPPER_REPONSE_TEXT"),
-				cTitle: l10n.translate("ADD_COPPER_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "+"
-			});
-			newCopper = parseInt(newCopper);
-			if(!Number.isNaN(newCopper) && newCopper > 0){
-				PlayerCharacter.money.copper += newCopper;
-				PlayerCharacter.updateView(event.target.doc);			
-			}
-		}
-	},	
-	
-	spendCopper: {
-		mouseUp: function(event) {
-			if(!event) return;
-			var spentCopper = app.response({
-				cQuestion: l10n.translate("SPEND_COPPER_REPONSE_TEXT"),
-				cTitle: l10n.translate("SPEND_COPPER_RESPONSE_TITLE"),
-				cDefault: 0,
-				cLabel: "-"
-			});
-			spentCopper = parseInt(spentCopper);
-			if(!Number.isNaN(spentCopper) && spentCopper > 0 && spentCopper <= PlayerCharacter.money.copper){
-				PlayerCharacter.money.copper -= spentCopper;
-				PlayerCharacter.updateView(event.target.doc);			
-			}
-		}
-	},					
+	},
 
 	xp: {
 		validate: function(event){
@@ -204,11 +76,14 @@ var Handlers = {
 			}
 		},
 		onChange: function(event) {
-			if(!event) return;
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
 			var newXp = parseInt(event.value);
 			if(newXp != PlayerCharacter.xp){
 				PlayerCharacter.xp = newXp;
-				PlayerCharacter.updateView(event.target.doc);
+				PlayerCharacter.updateView(event.target.doc);				
 			}			
 		}
 	},	
@@ -221,7 +96,10 @@ var Handlers = {
 			}			
 		},		
 		onChange: function(event) {
-			if(!event) return;
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
 			var newLevel = parseInt(event.value);
 			var oldLevel = PlayerCharacter.getLevel();						
 			if(newLevel != oldLevel){
@@ -234,29 +112,11 @@ var Handlers = {
 					PlayerCharacter.extraLevels = 0
 					PlayerCharacter.xp = Level.toXp(newLevel);
 				}
-				PlayerCharacter.updateView(event.target.doc);		
+				PlayerCharacter.updateView(event.target.doc);	
 			}
 			
 		}
 	},
-
-	money: {
-		validate: function(event){
-			var newMoney = parseInt(event.value);
-			if(Number.isNaN(newMoney) || (newMoney<0)){
-				event.rc = false;
-			}
-		},
-		onChange: function(event, money) {
-			if(!event) return;
-			var newMoney = parseInt(event.value);
-			if(newMoney != PlayerCharacter.money[money]){
-				PlayerCharacter.money[money] = newMoney;
-				PlayerCharacter.updateView(event.target.doc);
-			}			
-		}
-	},
-
 
 	abilityScore: {
 		validate: function(event){
@@ -266,10 +126,13 @@ var Handlers = {
 			}
 		},
 		onChange: function(event, ability) {
-			if(!event) return;
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
 			var newScore = parseInt(event.value);
 			if(newScore != PlayerCharacter.abilities[ability]){
-				PlayerCharacter.abilities[ability] = newScore;
+				PlayerCharacter.abilities[ability] = newScore;				
 				PlayerCharacter.updateView(event.target.doc);
 			}			
 		}
@@ -283,29 +146,101 @@ var Handlers = {
 				event.rc = false;
 			}
 		},
-		format: function(event){
-			if(!event) return;
-			var val = parseInt(event.value);
-			event.value = ((val>0)?"+":"") + val;
-			PlayerCharacter.updateView(event.target.doc);	
-		},
 		onChange: function(event) {
-			if(!event) return;
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
 			var newMod = parseInt(event.value);
 			if(newMod != PlayerCharacter.initiativeMiscBonus){
-				PlayerCharacter.initiativeMiscBonus = newMod;				
+				PlayerCharacter.initiativeMiscBonus = newMod;
+				event.value = signedNumberToString(PlayerCharacter.initiativeMiscBonus);
+				PlayerCharacter.updateView(event.target.doc);
 			}			
 		}
 	},
 
 	deityDropdown: {
 		onChange: function(event) {
-			if(!event) return;
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
 			var newDeityIndex = event.target.currentValueIndices;
-			var newDeity = (newDeityIndex>=0) ? event.target.getItemAt(newDeityIndex) : event.value;
+			var newDeity = (newDeityIndex>=0) ? event.target.getItemAt(newDeityIndex) : event.value;			
+			if(!newDeity){
+				newDeity = event.value = "-";
+			}
 			if(newDeity != PlayerCharacter.deity){
-				PlayerCharacter.deity = newDeity;				
+				PlayerCharacter.deity = newDeity;							
+				PlayerCharacter.updateView(event.target.doc);
 			}			
+		}
+	},
+
+	classDropdown: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newClassIndex = event.target.currentValueIndices;
+			var newClass = (newClassIndex>=0) ? event.target.getItemAt(newClassIndex) : event.value;								
+			if(!newClass){
+				newClass = "-";
+				event.value = "-";
+			}
+			if(newClass != PlayerCharacter.class){
+				PlayerCharacter.class = newClass;			
+				if(newClassIndex>=0){					
+					PlayerCharacter.setClassData(PlayerClass[newClass]);					
+				}				
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},
+
+	paragonPathDropdown: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newParagonPathIndex = event.target.currentValueIndices;
+			var newParagonPath = (newParagonPathIndex>=0) ? event.target.getItemAt(newParagonPathIndex) : event.value;								
+			if(!newParagonPath){
+				newParagonPath = "-";
+				event.value = "-";				
+			}
+			if(newParagonPath != PlayerCharacter.paragonPath){
+				PlayerCharacter.paragonPath = newParagonPath;			
+				// if(newParagonPathIndex>=0){					
+				// 	PlayerCharacter.setParagonPathData(PlayerParagonPath[newParagonPath]);					
+				// }				
+				// PlayerCharacter.updateView(event.target.doc);
+			}		
+		}
+	},
+
+	epicDestinyDropdown: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newEpicDestinyIndex = event.target.currentValueIndices;
+			var newEpicDestiny = (newEpicDestinyIndex>=0) ? event.target.getItemAt(newEpicDestinyIndex) : event.value;								
+			if(!newEpicDestiny){
+				newEpicDestiny = "-";
+				event.value = "-";				
+			}
+			if(newEpicDestiny != PlayerCharacter.epicDestiny){
+				PlayerCharacter.epicDestiny = newEpicDestiny;			
+				// if(newEpicDestinyIndex>=0){					
+				// 	PlayerCharacter.setEpicDestinyData(PlayerEpicDestiny[newEpicDestiny]);					
+				// }				
+				// PlayerCharacter.updateView(event.target.doc);
+			}		
 		}
 	}	
 
