@@ -162,7 +162,7 @@ function initFields() {
 	deityDropdown.clearItems();
 	deityDropdown.setItems(deities);
 	deityDropdown.value = "-";
-	deityDropdown.setAction("Calculate","Handlers.deityDropdown.onChange(event);")	
+	deityDropdown.setAction("Calculate","Handlers.deityDropdown.onChange(event);");
 
 	var classDropdown = this.getField("classDropdown");
 	clearFieldHandlers(classDropdown);
@@ -176,15 +176,41 @@ function initFields() {
 	classDropdown.clearItems();
 	classDropdown.setItems(classes);
 	classDropdown.value = "-";
-	classDropdown.setAction("Calculate","Handlers.classDropdown.onChange(event);")		
+	classDropdown.setAction("Calculate","Handlers.classDropdown.onChange(event);");		
+
+	var raceDropdown = this.getField("raceDropdown");
+	clearFieldHandlers(raceDropdown);
+	var races = [];
+	for (var playerRace in PlayerRace) {
+	    if (PlayerRace.hasOwnProperty(playerRace)) {
+	        races.push([l10n.translate(playerRace),playerRace]);
+	    }
+	}
+	races.sort();	
+	raceDropdown.clearItems();
+	raceDropdown.setItems(races);
+	raceDropdown.value = "-";
+	raceDropdown.setAction("Calculate","Handlers.raceDropdown.onChange(event);");			
+
+	var sizeDropdown = this.getField("sizeDropdown");
+	clearFieldHandlers(sizeDropdown);
+	var sizes = [];
+	for(var i = 0; i < Sizes.length; i++){
+		sizes.push([l10n.translate(Sizes[i]),Sizes[i]]);
+	}
+	sizes.sort();	
+	sizeDropdown.clearItems();
+	sizeDropdown.setItems(sizes);
+	sizeDropdown.value = "-";
+	sizeDropdown.setAction("Calculate","Handlers.sizeDropdown.onChange(event);")	
 
 	var paragonPathDropdown = this.getField("paragonPathDropdown");
 	clearFieldHandlers(paragonPathDropdown);
-	paragonPathDropdown.setAction("Calculate","Handlers.paragonPathDropdown.onChange(event);")	
+	paragonPathDropdown.setAction("Calculate","Handlers.paragonPathDropdown.onChange(event);");	
 
 	var epicDestinyDropdown = this.getField("epicDestinyDropdown");
 	clearFieldHandlers(epicDestinyDropdown);	
-	epicDestinyDropdown.setAction("Calculate","Handlers.epicDestinyDropdown.onChange(event);")		
+	epicDestinyDropdown.setAction("Calculate","Handlers.epicDestinyDropdown.onChange(event);");		
 
 }
 

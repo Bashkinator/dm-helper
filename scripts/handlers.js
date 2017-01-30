@@ -200,6 +200,46 @@ var Handlers = {
 		}
 	},
 
+	raceDropdown: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newRaceIndex = event.target.currentValueIndices;
+			var newRace = (newRaceIndex>=0) ? event.target.getItemAt(newRaceIndex) : event.value;								
+			if(!newRace){
+				newRace = "-";
+				event.value = "-";
+			}
+			if(newRace != PlayerCharacter.race){
+				PlayerCharacter.race = newRace;			
+				if(newRaceIndex>=0){					
+					PlayerCharacter.setRaceData(PlayerRace[newRace]);					
+				}				
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},	
+
+	sizeDropdown: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newSizeIndex = event.target.currentValueIndices;
+			var newSize = (newSizeIndex>=0) ? event.target.getItemAt(newSizeIndex) : event.value;			
+			if(!newSize){
+				newSize = event.value = "-";
+			}
+			if(newSize != PlayerCharacter.size){
+				PlayerCharacter.size = newSize;							
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},	
+
 	paragonPathDropdown: {
 		onChange: function(event) {
 			if(!event || (event.source != event.target)){

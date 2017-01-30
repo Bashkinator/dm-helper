@@ -45,6 +45,14 @@ var PlayerCharacter = {
 		var classIndex = classDropdown.currentValueIndices;
 		this.class = (classIndex>=0) ? classDropdown.getItemAt(classIndex) : classDropdown.value;		
 
+		var raceDropdown = doc.getField("raceDropdown");
+		var raceIndex = raceDropdown.currentValueIndices;
+		this.race = (raceIndex>=0) ? raceDropdown.getItemAt(raceIndex) : raceDropdown.value;				
+
+		var sizeDropdown = doc.getField("sizeDropdown");
+		var sizeIndex = sizeDropdown.currentValueIndices;
+		this.size = (sizeIndex>=0) ? sizeDropdown.getItemAt(sizeIndex) : sizeDropdown.value;		
+
 		var paragonPathDropdown = doc.getField("paragonPathDropdown");
 		var paragonPathIndex = paragonPathDropdown.currentValueIndices;
 		this.paragonPath = (paragonPathIndex>=0) ? paragonPathDropdown.getItemAt(paragonPathIndex) : paragonPathDropdown.value;				
@@ -188,6 +196,27 @@ var PlayerCharacter = {
 			}
 		}	
 
+		var raceDropdown = doc.getField("raceDropdown");		
+
+		if( (raceDropdown.value != this.race) && raceDropdown.value) {
+			var raceIndex = findItem(raceDropdown, this.race);
+			if(raceIndex>=0){
+				raceDropdown.currentValueIndices = raceIndex;		
+			}else{
+				raceDropdown.value = this.race;
+			}
+		}			
+
+		var sizeDropdown = doc.getField("sizeDropdown");		
+		if(sizeDropdown.value != this.size){
+			var sizeIndex = findItem(sizeDropdown, this.size);
+			if(sizeIndex>=0){
+				sizeDropdown.currentValueIndices = sizeIndex;		
+			}else{
+				sizeDropdown.value = this.size;
+			}	
+		}		
+
 		var playerLevel = this.getLevel();
 
 		var paragonPathDropdown = doc.getField("paragonPathDropdown");
@@ -320,6 +349,20 @@ var PlayerCharacter = {
 	},
 
 	race: "-",
+
+	setRaceData: function(newRace){
+		for (var skill in this.skills) {
+		    if (this.skills.hasOwnProperty(skill)) {
+		        if(newRace.skillMods[skill]>0){
+		        	this.skills[skill].miscMod = newRace.skillMods[skill];
+		        }else{
+		        	this.skills[skill].miscMod = 0;
+		        }
+		    }
+		}		
+		this.size = newRace.size;
+		this.speed.base = newRace.speed; 
+	},
 
 	size: "-",
 
