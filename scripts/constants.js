@@ -19,3 +19,21 @@ var Deities = [
 	"DEITY_VECNA",
 	"DEITY_ZEHIR",
 ];
+
+var Sizes = [
+	"SIZE_MEDIUM",
+	"SIZE_SMALL"
+];
+
+var Genders= [
+	"GENDER_MALE",
+	"GENDER_FEMALE"	
+];
+
+var Alignments = [
+	"ALIGNMENT_UNALIGNED",
+	"ALIGNMENT_GOOD",
+	"ALIGNMENT_LAWFUL_GOOD",
+	"ALIGNMENT_EVIL",
+	"ALIGNMENT_CHAOTIC_EVIL",
+];

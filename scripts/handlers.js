@@ -240,6 +240,43 @@ var Handlers = {
 		}
 	},	
 
+	genderDropdown: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newGenderIndex = event.target.currentValueIndices;
+			var newGender = (newGenderIndex>=0) ? event.target.getItemAt(newGenderIndex) : event.value;			
+			if(!newGender){
+				newGender = event.value = "-";
+			}
+			if(newGender != PlayerCharacter.gender){
+				PlayerCharacter.gender = newGender;							
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},	
+
+	alignmentDropdown: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newAlignmentIndex = event.target.currentValueIndices;
+			var newAlignment = (newAlignmentIndex>=0) ? event.target.getItemAt(newAlignmentIndex) : event.value;			
+			if(!newAlignment){
+				newAlignment = event.value = "-";
+			}
+			if(newAlignment != PlayerCharacter.alignment){
+				PlayerCharacter.alignment = newAlignment;							
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},		
+
+
 	paragonPathDropdown: {
 		onChange: function(event) {
 			if(!event || (event.source != event.target)){

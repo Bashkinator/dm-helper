@@ -1,4 +1,4 @@
-var version = "0.0.6";
+var version = "0.0.7";
 l10n.currentLanguage = "eng";
 
 Array.prototype.includes = function(item){
@@ -202,7 +202,31 @@ function initFields() {
 	sizeDropdown.clearItems();
 	sizeDropdown.setItems(sizes);
 	sizeDropdown.value = "-";
-	sizeDropdown.setAction("Calculate","Handlers.sizeDropdown.onChange(event);")	
+	sizeDropdown.setAction("Calculate","Handlers.sizeDropdown.onChange(event);");
+
+	var genderDropdown = this.getField("genderDropdown");
+	clearFieldHandlers(genderDropdown);
+	var genders = [];
+	for(var i = 0; i < Genders.length; i++){
+		genders.push([l10n.translate(Genders[i]),Genders[i]]);
+	}
+	genders.sort();	
+	genderDropdown.clearItems();
+	genderDropdown.setItems(genders);
+	genderDropdown.value = "-";
+	genderDropdown.setAction("Calculate","Handlers.genderDropdown.onChange(event);");		
+
+	var alignmentDropdown = this.getField("alignmentDropdown");
+	clearFieldHandlers(alignmentDropdown);
+	var alignment = [];
+	for(var i = 0; i < Alignments.length; i++){
+		alignment.push([l10n.translate(Alignments[i]),Alignments[i]]);
+	}
+	alignment.sort();	
+	alignmentDropdown.clearItems();
+	alignmentDropdown.setItems(alignment);	
+	alignmentDropdown.setAction("Calculate","Handlers.alignmentDropdown.onChange(event);");		
+		
 
 	var paragonPathDropdown = this.getField("paragonPathDropdown");
 	clearFieldHandlers(paragonPathDropdown);

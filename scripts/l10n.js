@@ -60,6 +60,10 @@ var l10n = {
 			SIZE_MEDIUM: 									"Medium",
 			SIZE_SMALL: 									"Small",
 
+			//gender
+			GENDER_MALE: 									"Male", 
+			GENDER_FEMALE: 									"Female", 
+
 			//races
 			RACE_DRAGONBORN: 								"Dragonborn", 
 			RACE_DWARF: 									"Dwarf", 
@@ -287,6 +291,10 @@ var l10n = {
 			//sizes
 			SIZE_MEDIUM: 									"Средний",
 			SIZE_SMALL: 									"Малый",
+
+			//gender
+			GENDER_MALE: 									"Муж.", 
+			GENDER_FEMALE: 									"Жен.", 			
 
 			//races
 			RACE_DRAGONBORN: 								"Драконорождённый", 

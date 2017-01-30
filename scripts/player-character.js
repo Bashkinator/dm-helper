@@ -53,6 +53,14 @@ var PlayerCharacter = {
 		var sizeIndex = sizeDropdown.currentValueIndices;
 		this.size = (sizeIndex>=0) ? sizeDropdown.getItemAt(sizeIndex) : sizeDropdown.value;		
 
+		var genderDropdown = doc.getField("genderDropdown");
+		var genderIndex = genderDropdown.currentValueIndices;
+		this.gender = (genderIndex>=0) ? genderDropdown.getItemAt(genderIndex) : genderDropdown.value;				
+
+		var alignmentDropdown = doc.getField("alignmentDropdown");
+		var alignmentIndex = alignmentDropdown.currentValueIndices;
+		this.alignment = (alignmentIndex>=0) ? alignmentDropdown.getItemAt(alignmentIndex) : alignmentDropdown.value;				
+
 		var paragonPathDropdown = doc.getField("paragonPathDropdown");
 		var paragonPathIndex = paragonPathDropdown.currentValueIndices;
 		this.paragonPath = (paragonPathIndex>=0) ? paragonPathDropdown.getItemAt(paragonPathIndex) : paragonPathDropdown.value;				
@@ -217,6 +225,27 @@ var PlayerCharacter = {
 			}	
 		}		
 
+		var genderDropdown = doc.getField("genderDropdown");		
+		if(genderDropdown.value != this.gender){
+			var genderIndex = findItem(genderDropdown, this.gender);
+			if(genderIndex>=0){
+				genderDropdown.currentValueIndices = genderIndex;		
+			}else{
+				genderDropdown.value = this.gender;
+			}	
+		}		
+
+		var alignmentDropdown = doc.getField("alignmentDropdown");		
+		if(alignmentDropdown.value != this.alignment){
+			var alignmentIndex = findItem(alignmentDropdown, this.alignment);
+			if(alignmentIndex>=0){
+				alignmentDropdown.currentValueIndices = alignmentIndex;		
+			}else{
+				alignmentDropdown.value = this.alignment;
+			}	
+		}			
+
+
 		var playerLevel = this.getLevel();
 
 		var paragonPathDropdown = doc.getField("paragonPathDropdown");
@@ -367,6 +396,10 @@ var PlayerCharacter = {
 	size: "-",
 
 	deity: "-",
+
+	gender: "-",
+
+	alignment: "ALIGNMENT_UNALIGNED",
 
 	abilities: {
 		str: 0,
