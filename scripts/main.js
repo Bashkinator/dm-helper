@@ -1,4 +1,4 @@
-var version = "0.0.7";
+var version = "0.0.8";
 l10n.currentLanguage = "eng";
 
 Array.prototype.includes = function(item){
@@ -149,7 +149,7 @@ function initFields() {
 
 	var initiativeMiscModField = this.getField("initiativeMiscMod");	
 	clearFieldHandlers(initiativeMiscModField);
-	initiativeMiscModField.setAction("Validate","Handlers.initiativeMiscMod.validate(event);");		
+	initiativeMiscModField.setAction("Validate","Handlers.modValidate(event);");		
 	initiativeMiscModField.setAction("Calculate","Handlers.initiativeMiscMod.onChange(event);");		
 
 	var deityDropdown = this.getField("deityDropdown");
@@ -235,6 +235,26 @@ function initFields() {
 	var epicDestinyDropdown = this.getField("epicDestinyDropdown");
 	clearFieldHandlers(epicDestinyDropdown);	
 	epicDestinyDropdown.setAction("Calculate","Handlers.epicDestinyDropdown.onChange(event);");		
+
+	var speedBaseField = this.getField("speedBase");	
+	clearFieldHandlers(speedBaseField);
+	speedBaseField.setAction("Validate","Handlers.speedBase.validate(event);");		
+	speedBaseField.setAction("Calculate","Handlers.speedBase.onChange(event);");		
+
+	var speedArmorField = this.getField("speedArmor");	
+	clearFieldHandlers(speedArmorField);
+	speedArmorField.setAction("Validate","Handlers.modValidate(event);");		
+	speedArmorField.setAction("Calculate","Handlers.speedArmor.onChange(event);");		
+
+	var speedItemField = this.getField("speedItem");	
+	clearFieldHandlers(speedItemField);
+	speedItemField.setAction("Validate","Handlers.modValidate(event);");		
+	speedItemField.setAction("Calculate","Handlers.speedItem.onChange(event);");		
+
+	var speedMiscField = this.getField("speedMisc");	
+	clearFieldHandlers(speedMiscField);
+	speedMiscField.setAction("Validate","Handlers.modValidate(event);");		
+	speedMiscField.setAction("Calculate","Handlers.speedMisc.onChange(event);");					
 
 }
 

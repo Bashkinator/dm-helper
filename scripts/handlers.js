@@ -1,5 +1,13 @@
 var Handlers = {
 
+	modValidate: function(event){
+		if(!event) return;
+		var newMod = parseInt(event.value);
+		if(Number.isNaN(newMod)){
+			event.rc = false;
+		}
+	},
+
 	portraitButton: {
 
 		onClick: function(event) {
@@ -139,13 +147,6 @@ var Handlers = {
 	},						
 
 	initiativeMiscMod: {
-		validate: function(event){
-			if(!event) return;
-			var newMod = parseInt(event.value);
-			if(Number.isNaN(newMod)){
-				event.rc = false;
-			}
-		},
 		onChange: function(event) {
 			if(!event || (event.source != event.target)){
 				event.rc = false;
@@ -319,6 +320,71 @@ var Handlers = {
 				// PlayerCharacter.updateView(event.target.doc);
 			}		
 		}
-	}	
+	},	
+
+	speedBase: {
+		validate: function(event){
+			var newSpeed = parseInt(event.value);
+			if(Number.isNaN(newSpeed) || (newSpeed<0)){
+				event.rc = false;
+			}
+		},		
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.speed.base){
+				PlayerCharacter.speed.base = newMod;				
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},	
+
+	speedArmor: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.speed.armorMod){
+				PlayerCharacter.speed.armorMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.speed.armorMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},
+
+	speedItem: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.speed.itemMod){
+				PlayerCharacter.speed.itemMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.speed.itemMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},
+
+	speedMisc: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.speed.miscMod){
+				PlayerCharacter.speed.miscMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.speed.miscMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	}
 
 };

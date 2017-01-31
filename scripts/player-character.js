@@ -69,6 +69,18 @@ var PlayerCharacter = {
 		var epicDestinyIndex = epicDestinyDropdown.currentValueIndices;
 		this.epicDestiny = (epicDestinyIndex>=0) ? epicDestinyDropdown.getItemAt(epicDestinyIndex) : epicDestinyDropdown.value;						
 
+		var speedBaseField = doc.getField("speedBase");
+		this.speed.base = speedBaseField.value;		
+
+		var speedArmorField = doc.getField("speedArmor");
+		this.speed.armorMod = speedArmorField.value;		
+
+		var speedItemField = doc.getField("speedItem");
+		this.speed.itemMod = speedItemField.value;		
+
+		var speedMiscField = doc.getField("speedMisc");
+		this.speed.miscMod = speedMiscField.value;								
+
 	},
 
 	updateView: function(doc) {		
@@ -216,7 +228,7 @@ var PlayerCharacter = {
 		}			
 
 		var sizeDropdown = doc.getField("sizeDropdown");		
-		if(sizeDropdown.value != this.size){
+		if( (sizeDropdown.value != this.size) && sizeDropdown.value){
 			var sizeIndex = findItem(sizeDropdown, this.size);
 			if(sizeIndex>=0){
 				sizeDropdown.currentValueIndices = sizeIndex;		
@@ -226,7 +238,7 @@ var PlayerCharacter = {
 		}		
 
 		var genderDropdown = doc.getField("genderDropdown");		
-		if(genderDropdown.value != this.gender){
+		if( (genderDropdown.value != this.gender) && genderDropdown.value){
 			var genderIndex = findItem(genderDropdown, this.gender);
 			if(genderIndex>=0){
 				genderDropdown.currentValueIndices = genderIndex;		
@@ -236,7 +248,7 @@ var PlayerCharacter = {
 		}		
 
 		var alignmentDropdown = doc.getField("alignmentDropdown");		
-		if(alignmentDropdown.value != this.alignment){
+		if( (alignmentDropdown.value != this.alignment) && alignmentDropdown.value) {
 			var alignmentIndex = findItem(alignmentDropdown, this.alignment);
 			if(alignmentIndex>=0){
 				alignmentDropdown.currentValueIndices = alignmentIndex;		
@@ -320,9 +332,27 @@ var PlayerCharacter = {
 			}else{				 				
 				epicDestinyDropdown.value = this.epicDestiny;
 			}
-		}			
+		}	
 
-			
+		var speedScoreField = doc.getField("speedScore");
+		var speedScore = this.getSpeed();
+		speedScoreField.value = speedScore;
+		var speedBaseField = doc.getField("speedBase");		
+		if(speedBaseField.value != this.speed.base){
+			speedBaseField.value = this.speed.base;		
+		}							
+		var speedArmorField = doc.getField("speedArmor");		
+		if(speedArmorField.value != this.speed.armorMod){
+			speedArmorField.value = signedNumberToString(this.speed.armorMod);		
+		}	
+		var speedItemField = doc.getField("speedItem");		
+		if(speedItemField.value != this.speed.itemMod){
+			speedItemField.value = signedNumberToString(this.speed.itemMod);		
+		}
+		var speedMiscField = doc.getField("speedMisc");		
+		if(speedMiscField.value != this.speed.miscMod){
+			speedMiscField.value = signedNumberToString(this.speed.miscMod);		
+		}		
 						
 	},	
 
@@ -437,6 +467,10 @@ var PlayerCharacter = {
 		itemMod: 0,
 		miscMod: 0		
 	},	
+
+	getSpeed: function(){
+		return this.speed.base + this.speed.armorMod + this.speed.itemMod + this.speed.miscMod;
+	},
 
 	defenses: {
 		ac: {
