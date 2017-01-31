@@ -1,4 +1,4 @@
-var version = "0.0.8";
+var version = "0.0.9";
 l10n.currentLanguage = "eng";
 
 Array.prototype.includes = function(item){
@@ -254,7 +254,112 @@ function initFields() {
 	var speedMiscField = this.getField("speedMisc");	
 	clearFieldHandlers(speedMiscField);
 	speedMiscField.setAction("Validate","Handlers.modValidate(event);");		
-	speedMiscField.setAction("Calculate","Handlers.speedMisc.onChange(event);");					
+	speedMiscField.setAction("Calculate","Handlers.speedMisc.onChange(event);");	
+
+	var acAbilField = this.getField("acAbil");	
+	clearFieldHandlers(acAbilField);
+	acAbilField.setAction("Validate","Handlers.modValidate(event);");		
+	acAbilField.setAction("Calculate","Handlers.acAbil.onChange(event);");	
+
+	var acClassField = this.getField("acClass");	
+	clearFieldHandlers(acClassField);
+	acClassField.setAction("Validate","Handlers.modValidate(event);");		
+	acClassField.setAction("Calculate","Handlers.defenseClass.onChange(event,\"ac\");");	
+
+	var acFeatField = this.getField("acFeat");	
+	clearFieldHandlers(acFeatField);
+	acFeatField.setAction("Validate","Handlers.modValidate(event);");		
+	acFeatField.setAction("Calculate","Handlers.defenseFeat.onChange(event,\"ac\");");	
+
+	var acEnhField = this.getField("acEnh");	
+	clearFieldHandlers(acEnhField);
+	acEnhField.setAction("Validate","Handlers.modValidate(event);");		
+	acEnhField.setAction("Calculate","Handlers.defenseEnh.onChange(event,\"ac\");");	
+
+	var acMisc1Field = this.getField("acMisc1");	
+	clearFieldHandlers(acMisc1Field);
+	acMisc1Field.setAction("Validate","Handlers.modValidate(event);");		
+	acMisc1Field.setAction("Calculate","Handlers.defenseMisc1.onChange(event,\"ac\");");	
+
+	var acMisc2Field = this.getField("acMisc2");	
+	clearFieldHandlers(acMisc2Field);
+	acMisc2Field.setAction("Validate","Handlers.modValidate(event);");		
+	acMisc2Field.setAction("Calculate","Handlers.defenseMisc2.onChange(event,\"ac\");");						
+
+	var fortClassField = this.getField("fortClass");	
+	clearFieldHandlers(fortClassField);
+	fortClassField.setAction("Validate","Handlers.modValidate(event);");		
+	fortClassField.setAction("Calculate","Handlers.defenseClass.onChange(event,\"fort\");");	
+
+	var fortFeatField = this.getField("fortFeat");	
+	clearFieldHandlers(fortFeatField);
+	fortFeatField.setAction("Validate","Handlers.modValidate(event);");		
+	fortFeatField.setAction("Calculate","Handlers.defenseFeat.onChange(event,\"fort\");");	
+
+	var fortEnhField = this.getField("fortEnh");	
+	clearFieldHandlers(fortEnhField);
+	fortEnhField.setAction("Validate","Handlers.modValidate(event);");		
+	fortEnhField.setAction("Calculate","Handlers.defenseEnh.onChange(event,\"fort\");");	
+
+	var fortMisc1Field = this.getField("fortMisc1");	
+	clearFieldHandlers(fortMisc1Field);
+	fortMisc1Field.setAction("Validate","Handlers.modValidate(event);");		
+	fortMisc1Field.setAction("Calculate","Handlers.defenseMisc1.onChange(event,\"fort\");");	
+
+	var fortMisc2Field = this.getField("fortMisc2");	
+	clearFieldHandlers(fortMisc2Field);
+	fortMisc2Field.setAction("Validate","Handlers.modValidate(event);");		
+	fortMisc2Field.setAction("Calculate","Handlers.defenseMisc2.onChange(event,\"fort\");");
+
+	var refClassField = this.getField("refClass");	
+	clearFieldHandlers(refClassField);
+	refClassField.setAction("Validate","Handlers.modValidate(event);");		
+	refClassField.setAction("Calculate","Handlers.defenseClass.onChange(event,\"ref\");");	
+
+	var refFeatField = this.getField("refFeat");	
+	clearFieldHandlers(refFeatField);
+	refFeatField.setAction("Validate","Handlers.modValidate(event);");		
+	refFeatField.setAction("Calculate","Handlers.defenseFeat.onChange(event,\"ref\");");	
+
+	var refEnhField = this.getField("refEnh");	
+	clearFieldHandlers(refEnhField);
+	refEnhField.setAction("Validate","Handlers.modValidate(event);");		
+	refEnhField.setAction("Calculate","Handlers.defenseEnh.onChange(event,\"ref\");");	
+
+	var refMisc1Field = this.getField("refMisc1");	
+	clearFieldHandlers(refMisc1Field);
+	refMisc1Field.setAction("Validate","Handlers.modValidate(event);");		
+	refMisc1Field.setAction("Calculate","Handlers.defenseMisc1.onChange(event,\"ref\");");	
+
+	var refMisc2Field = this.getField("refMisc2");	
+	clearFieldHandlers(refMisc2Field);
+	refMisc2Field.setAction("Validate","Handlers.modValidate(event);");		
+	refMisc2Field.setAction("Calculate","Handlers.defenseMisc2.onChange(event,\"ref\");");
+
+	var willClassField = this.getField("willClass");	
+	clearFieldHandlers(willClassField);
+	willClassField.setAction("Validate","Handlers.modValidate(event);");		
+	willClassField.setAction("Calculate","Handlers.defenseClass.onChange(event,\"will\");");	
+
+	var willFeatField = this.getField("willFeat");	
+	clearFieldHandlers(willFeatField);
+	willFeatField.setAction("Validate","Handlers.modValidate(event);");		
+	willFeatField.setAction("Calculate","Handlers.defenseFeat.onChange(event,\"will\");");	
+
+	var willEnhField = this.getField("willEnh");	
+	clearFieldHandlers(willEnhField);
+	willEnhField.setAction("Validate","Handlers.modValidate(event);");		
+	willEnhField.setAction("Calculate","Handlers.defenseEnh.onChange(event,\"will\");");	
+
+	var willMisc1Field = this.getField("willMisc1");	
+	clearFieldHandlers(willMisc1Field);
+	willMisc1Field.setAction("Validate","Handlers.modValidate(event);");		
+	willMisc1Field.setAction("Calculate","Handlers.defenseMisc1.onChange(event,\"will\");");	
+
+	var willMisc2Field = this.getField("willMisc2");	
+	clearFieldHandlers(willMisc2Field);
+	willMisc2Field.setAction("Validate","Handlers.modValidate(event);");		
+	willMisc2Field.setAction("Calculate","Handlers.defenseMisc2.onChange(event,\"will\");");			
 
 }
 

@@ -2,7 +2,7 @@ var PlayerCharacter = {
 
 	loadValues: function(doc) {	
 		var xpField = doc.getField("xp");
-		this.xp = xpField.value;
+		this.xp = parseInt(xpField.value);
 		var levelVal = this.getLevel();
 		if(levelVal == 30){
 			var levelField = doc.getField("level");
@@ -11,28 +11,28 @@ var PlayerCharacter = {
 			this.extraLevels = 0;
 		}
 		var astralDiamondsField = doc.getField("aDiamonds");
-		this.money.astralDiamonds = astralDiamondsField.value;		
+		this.money.astralDiamonds = parseInt(astralDiamondsField.value);		
 		var platinumField = doc.getField("platinum");
-		this.money.platinum = platinumField.value;				
+		this.money.platinum = parseInt(platinumField.value);				
 		var goldField = doc.getField("gold");
-		this.money.gold = goldField.value;		
+		this.money.gold = parseInt(goldField.value);		
 		var silverField = doc.getField("silver");
-		this.money.silver = silverField.value;		
+		this.money.silver = parseInt(silverField.value);		
 		var copperField = doc.getField("copper");
-		this.money.copper = copperField.value;		
+		this.money.copper = parseInt(copperField.value);		
 
 		var strField = doc.getField("abilityStrScore");
-		this.abilities.str = strField.value;		
+		this.abilities.str = parseInt(strField.value);		
 		var conField = doc.getField("abilityConScore");
-		this.abilities.con = conField.value;
+		this.abilities.con = parseInt(conField.value);
 		var dexField = doc.getField("abilityDexScore");
-		this.abilities.dex = dexField.value;
+		this.abilities.dex = parseInt(dexField.value);
 		var intField = doc.getField("abilityIntScore");
-		this.abilities.int = intField.value;
+		this.abilities.int = parseInt(intField.value);
 		var wisField = doc.getField("abilityWisScore");
-		this.abilities.wis = wisField.value;								
+		this.abilities.wis = parseInt(wisField.value);								
 		var chaField = doc.getField("abilityChaScore");
-		this.abilities.cha = chaField.value;
+		this.abilities.cha = parseInt(chaField.value);
 
 		var initiativeMiscField = doc.getField("initiativeMiscMod");
 		this.initiativeMiscBonus = initiativeMiscField.value;
@@ -70,16 +70,59 @@ var PlayerCharacter = {
 		this.epicDestiny = (epicDestinyIndex>=0) ? epicDestinyDropdown.getItemAt(epicDestinyIndex) : epicDestinyDropdown.value;						
 
 		var speedBaseField = doc.getField("speedBase");
-		this.speed.base = speedBaseField.value;		
-
+		this.speed.base = parseInt(speedBaseField.value);	
 		var speedArmorField = doc.getField("speedArmor");
-		this.speed.armorMod = speedArmorField.value;		
-
+		this.speed.armorMod = parseInt(speedArmorField.value);
 		var speedItemField = doc.getField("speedItem");
-		this.speed.itemMod = speedItemField.value;		
-
+		this.speed.itemMod = parseInt(speedItemField.value);
 		var speedMiscField = doc.getField("speedMisc");
-		this.speed.miscMod = speedMiscField.value;								
+		this.speed.miscMod = parseInt(speedMiscField.value);
+
+		var acAbilField = doc.getField("acAbil");
+		this.defenses.ac.armorOrAbilityMod = parseInt(acAbilField.value);
+		var acClassField = doc.getField("acClass");
+		this.defenses.ac.classMod = parseInt(acClassField.value);
+		var acFeatField = doc.getField("acFeat");
+		this.defenses.ac.featMod = parseInt(acFeatField.value);
+		var acEnhField = doc.getField("acEnh");		
+		this.defenses.ac.enhancementMod = parseInt(acEnhField.value);
+		var acMisc1Field = doc.getField("acMisc1");
+		this.defenses.ac.firstMiscMod = parseInt(acMisc1Field.value);
+		var acMisc2Field = doc.getField("acMisc2");
+		this.defenses.ac.secondMiscMod = parseInt(acMisc2Field.value);
+
+		var fortClassField = doc.getField("fortClass");
+		this.defenses.fort.classMod = parseInt(fortClassField.value);
+		var fortFeatField = doc.getField("fortFeat");
+		this.defenses.fort.featMod = parseInt(fortFeatField.value);
+		var fortEnhField = doc.getField("fortEnh");		
+		this.defenses.fort.enhancementMod = parseInt(fortEnhField.value);
+		var fortMisc1Field = doc.getField("fortMisc1");
+		this.defenses.fort.firstMiscMod = parseInt(fortMisc1Field.value);
+		var fortMisc2Field = doc.getField("fortMisc2");
+		this.defenses.fort.secondMiscMod = parseInt(fortMisc2Field.value);	
+
+		var refClassField = doc.getField("refClass");
+		this.defenses.ref.classMod = parseInt(refClassField.value);
+		var refFeatField = doc.getField("refFeat");
+		this.defenses.ref.featMod = parseInt(refFeatField.value);
+		var refEnhField = doc.getField("refEnh");		
+		this.defenses.ref.enhancementMod = parseInt(refEnhField.value);
+		var refMisc1Field = doc.getField("refMisc1");
+		this.defenses.ref.firstMiscMod = parseInt(refMisc1Field.value);
+		var refMisc2Field = doc.getField("refMisc2");
+		this.defenses.ref.secondMiscMod = parseInt(refMisc2Field.value);	
+
+		var willClassField = doc.getField("willClass");
+		this.defenses.will.classMod = parseInt(willClassField.value);
+		var willFeatField = doc.getField("willFeat");
+		this.defenses.will.featMod = parseInt(willFeatField.value);
+		var willEnhField = doc.getField("willEnh");		
+		this.defenses.will.enhancementMod = parseInt(willEnhField.value);
+		var willMisc1Field = doc.getField("willMisc1");
+		this.defenses.will.firstMiscMod = parseInt(willMisc1Field.value);
+		var willMisc2Field = doc.getField("willMisc2");
+		this.defenses.will.secondMiscMod = parseInt(willMisc2Field.value);												
 
 	},
 
@@ -352,7 +395,130 @@ var PlayerCharacter = {
 		var speedMiscField = doc.getField("speedMisc");		
 		if(speedMiscField.value != this.speed.miscMod){
 			speedMiscField.value = signedNumberToString(this.speed.miscMod);		
-		}		
+		}	
+
+		var acScoreField = doc.getField("acScore");
+		var acScore = this.getDefenseScore("ac");
+		acScoreField.value = acScore;
+		var acLevelField = doc.getField("acLevel");		
+		acLevelField.value = 10 + levelMod;		
+		var acAbilField = doc.getField("acAbil");		
+		if(acAbilField.value != this.defenses.ac.armorOrAbilityMod){
+			acAbilField.value = signedNumberToString(this.defenses.ac.armorOrAbilityMod);		
+		}							
+		var acClassField = doc.getField("acClass");		
+		if(acClassField.value != this.defenses.ac.classMod){
+			acClassField.value = signedNumberToString(this.defenses.ac.classMod);		
+		}	
+		var acFeatField = doc.getField("acFeat");		
+		if(acFeatField.value != this.defenses.ac.featMod){
+			acFeatField.value = signedNumberToString(this.defenses.ac.featMod);		
+		}
+		var acEnhField = doc.getField("acEnh");		
+		if(acEnhField.value != this.defenses.ac.enhancementMod){
+			acEnhField.value = signedNumberToString(this.defenses.ac.enhancementMod);		
+		}			
+		var acMisc1Field = doc.getField("acMisc1");		
+		if(acMisc1Field.value != this.defenses.ac.firstMiscMod){
+			acMisc1Field.value = signedNumberToString(this.defenses.ac.firstMiscMod);		
+		}			
+		var acMisc2Field = doc.getField("acMisc2");		
+		if(acMisc2Field.value != this.defenses.ac.secondMiscMod){
+			acMisc2Field.value = signedNumberToString(this.defenses.ac.secondMiscMod);		
+		}				
+
+		var fortScoreField = doc.getField("fortScore");
+		var fortScore = this.getDefenseScore("fort");
+		fortScoreField.value = fortScore;
+		var fortLevelField = doc.getField("fortLevel");		
+		fortLevelField.value = 10 + levelMod;		
+		var fortAbilField = doc.getField("fortAbil");
+		var fortAbilMod = this.getDefenseAbilityMod("fort"); 		
+		if(fortAbilField.value != fortAbilMod){
+			fortAbilField.value = signedNumberToString(fortAbilMod);		
+		}							
+		var fortClassField = doc.getField("fortClass");		
+		if(fortClassField.value != this.defenses.fort.classMod){
+			fortClassField.value = signedNumberToString(this.defenses.fort.classMod);		
+		}	
+		var fortFeatField = doc.getField("fortFeat");		
+		if(fortFeatField.value != this.defenses.fort.featMod){
+			fortFeatField.value = signedNumberToString(this.defenses.fort.featMod);		
+		}
+		var fortEnhField = doc.getField("fortEnh");		
+		if(fortEnhField.value != this.defenses.fort.enhancementMod){
+			fortEnhField.value = signedNumberToString(this.defenses.fort.enhancementMod);		
+		}			
+		var fortMisc1Field = doc.getField("fortMisc1");		
+		if(fortMisc1Field.value != this.defenses.fort.firstMiscMod){
+			fortMisc1Field.value = signedNumberToString(this.defenses.fort.firstMiscMod);		
+		}			
+		var fortMisc2Field = doc.getField("fortMisc2");		
+		if(fortMisc2Field.value != this.defenses.fort.secondMiscMod){
+			fortMisc2Field.value = signedNumberToString(this.defenses.fort.secondMiscMod);		
+		}	
+
+		var refScoreField = doc.getField("refScore");
+		var refScore = this.getDefenseScore("ref");
+		refScoreField.value = refScore;
+		var refLevelField = doc.getField("refLevel");		
+		refLevelField.value = 10 + levelMod;		
+		var refAbilField = doc.getField("refAbil");
+		var refAbilMod = this.getDefenseAbilityMod("ref"); 		
+		if(refAbilField.value != refAbilMod){
+			refAbilField.value = signedNumberToString(refAbilMod);		
+		}						
+		var refClassField = doc.getField("refClass");		
+		if(refClassField.value != this.defenses.ref.classMod){
+			refClassField.value = signedNumberToString(this.defenses.ref.classMod);		
+		}	
+		var refFeatField = doc.getField("refFeat");		
+		if(refFeatField.value != this.defenses.ref.featMod){
+			refFeatField.value = signedNumberToString(this.defenses.ref.featMod);		
+		}
+		var refEnhField = doc.getField("refEnh");		
+		if(refEnhField.value != this.defenses.ref.enhancementMod){
+			refEnhField.value = signedNumberToString(this.defenses.ref.enhancementMod);		
+		}			
+		var refMisc1Field = doc.getField("refMisc1");		
+		if(refMisc1Field.value != this.defenses.ref.firstMiscMod){
+			refMisc1Field.value = signedNumberToString(this.defenses.ref.firstMiscMod);		
+		}			
+		var refMisc2Field = doc.getField("refMisc2");		
+		if(refMisc2Field.value != this.defenses.ref.secondMiscMod){
+			refMisc2Field.value = signedNumberToString(this.defenses.ref.secondMiscMod);		
+		}	
+
+		var willScoreField = doc.getField("willScore");
+		var willScore = this.getDefenseScore("will");
+		willScoreField.value = willScore;
+		var willLevelField = doc.getField("willLevel");		
+		willLevelField.value = 10 + levelMod;		
+		var willAbilField = doc.getField("willAbil");
+		var willAbilMod = this.getDefenseAbilityMod("will"); 		
+		if(willAbilField.value != willAbilMod){
+			willAbilField.value = signedNumberToString(willAbilMod);		
+		}						
+		var willClassField = doc.getField("willClass");		
+		if(willClassField.value != this.defenses.will.classMod){
+			willClassField.value = signedNumberToString(this.defenses.will.classMod);		
+		}	
+		var willFeatField = doc.getField("willFeat");		
+		if(willFeatField.value != this.defenses.will.featMod){
+			willFeatField.value = signedNumberToString(this.defenses.will.featMod);		
+		}
+		var willEnhField = doc.getField("willEnh");		
+		if(willEnhField.value != this.defenses.will.enhancementMod){
+			willEnhField.value = signedNumberToString(this.defenses.will.enhancementMod);		
+		}			
+		var willMisc1Field = doc.getField("willMisc1");		
+		if(willMisc1Field.value != this.defenses.will.firstMiscMod){
+			willMisc1Field.value = signedNumberToString(this.defenses.will.firstMiscMod);		
+		}			
+		var willMisc2Field = doc.getField("willMisc2");		
+		if(willMisc2Field.value != this.defenses.will.secondMiscMod){
+			willMisc2Field.value = signedNumberToString(this.defenses.will.secondMiscMod);		
+		}				
 						
 	},	
 
@@ -482,8 +648,7 @@ var PlayerCharacter = {
 			secondMiscMod: 0
 		},
 
-		fort: {
-			armorOrAbilityMod: 0,
+		fort: {			
 			classMod: 0,
 			featMod: 0,
 			enhancementMod: 0,
@@ -491,8 +656,7 @@ var PlayerCharacter = {
 			secondMiscMod: 0
 		},
 
-		ref: {
-			armorOrAbilityMod: 0,
+		ref: {			
 			classMod: 0,
 			featMod: 0,
 			enhancementMod: 0,
@@ -500,8 +664,7 @@ var PlayerCharacter = {
 			secondMiscMod: 0
 		},
 
-		will: {
-			armorOrAbilityMod: 0,
+		will: {			
 			classMod: 0,
 			featMod: 0,
 			enhancementMod: 0,
@@ -509,6 +672,38 @@ var PlayerCharacter = {
 			secondMiscMod: 0
 		},		
 	},	
+
+	getDefenseScore: function(defense){
+		var levelMod = this.getLevelMod();
+		var abilityMod = this.getDefenseAbilityMod(defense);
+		return 10 + levelMod + abilityMod 
+			+ this.defenses[defense].classMod + this.defenses[defense].featMod 
+			+ this.defenses[defense].enhancementMod + this.defenses[defense].firstMiscMod
+			+ this.defenses[defense].secondMiscMod;
+	},
+
+	getDefenseAbilityMod: function(defense){
+		if(defense == "ac"){
+			return this.defenses.ac.armorOrAbilityMod;
+		}
+		var fisrtAbilityMod = 0;
+		var secondAbilityMod = 0;
+		switch(defense){
+			case "fort":
+				fisrtAbilityMod = this.getAbilityMod("str");
+				secondAbilityMod = this.getAbilityMod("con");
+				break;
+			case "ref":
+				fisrtAbilityMod = this.getAbilityMod("dex");
+				secondAbilityMod = this.getAbilityMod("int");
+				break;				
+			case "will":
+				fisrtAbilityMod = this.getAbilityMod("wis");
+				secondAbilityMod = this.getAbilityMod("cha");
+				break;												
+		}
+		return (fisrtAbilityMod>secondAbilityMod) ? fisrtAbilityMod : secondAbilityMod;
+	},
 
 	skills: {
 		acrobatics: {

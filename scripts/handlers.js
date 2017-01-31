@@ -385,6 +385,96 @@ var Handlers = {
 				PlayerCharacter.updateView(event.target.doc);
 			}			
 		}
+	},
+
+	acAbil: {
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.defenses.ac.armorOrAbilityMod){
+				PlayerCharacter.defenses.ac.armorOrAbilityMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.defenses.ac.armorOrAbilityMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}		
+	},
+
+	defenseClass: {
+		onChange: function(event, defense) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.defenses[defense].classMod){
+				PlayerCharacter.defenses[defense].classMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.defenses[defense].classMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}		
+	},
+
+	defenseFeat: {
+		onChange: function(event, defense) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.defenses[defense].featMod){
+				PlayerCharacter.defenses[defense].featMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.defenses[defense].featMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}		
+	},
+
+	defenseEnh: {
+		onChange: function(event, defense) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.defenses[defense].enhancementMod){
+				PlayerCharacter.defenses[defense].enhancementMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.defenses[defense].enhancementMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}		
+	},
+
+	defenseMisc1: {
+		onChange: function(event, defense) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.defenses[defense].firstMiscMod){
+				PlayerCharacter.defenses[defense].firstMiscMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.defenses[defense].firstMiscMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}		
+	},
+
+	defenseMisc2: {
+		onChange: function(event, defense) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			if(newMod != PlayerCharacter.defenses[defense].secondMiscMod){
+				PlayerCharacter.defenses[defense].secondMiscMod = newMod;
+				event.value = signedNumberToString(PlayerCharacter.defenses[defense].secondMiscMod);
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}		
 	}
 
 };
