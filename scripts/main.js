@@ -1,4 +1,4 @@
-var version = "0.0.9";
+var version = "0.0.10";
 l10n.currentLanguage = "eng";
 
 Array.prototype.includes = function(item){
