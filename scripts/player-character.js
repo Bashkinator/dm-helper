@@ -139,6 +139,101 @@ var PlayerCharacter = {
 		var newSurgesPerDay = parseInt(surgesPerDayField.value);
 		this.extraSurgesPerDay = newSurgesPerDay - surgesPerDay;
 
+		var acrobaticsTrainingBonusField = doc.getField("acrobaticsTrainingBonus");
+		this.skills.acrobatics.trainedBonus = parseInt(acrobaticsTrainingBonusField.value);
+		var acrobaticsArmorPenaltyField = doc.getField("acrobaticsArmorPenalty");
+		this.skills.acrobatics.armorPenalty = parseInt(acrobaticsArmorPenaltyField.value);
+		var acrobaticsMiscModField = doc.getField("acrobaticsMiscMod");
+		this.skills.acrobatics.miscMod = parseInt(acrobaticsMiscModField.value);						
+
+		var arcanaTrainingBonusField = doc.getField("arcanaTrainingBonus");
+		this.skills.arcana.trainedBonus = parseInt(arcanaTrainingBonusField.value);
+		var arcanaMiscModField = doc.getField("arcanaMiscMod");
+		this.skills.arcana.miscMod = parseInt(arcanaMiscModField.value);	
+
+		var athleticsTrainingBonusField = doc.getField("athleticsTrainingBonus");
+		this.skills.athletics.trainedBonus = parseInt(athleticsTrainingBonusField.value);
+		var athleticsArmorPenaltyField = doc.getField("athleticsArmorPenalty");
+		this.skills.athletics.armorPenalty = parseInt(athleticsArmorPenaltyField.value);
+		var athleticsMiscModField = doc.getField("athleticsMiscMod");
+		this.skills.athletics.miscMod = parseInt(athleticsMiscModField.value);	
+
+		var bluffTrainingBonusField = doc.getField("bluffTrainingBonus");
+		this.skills.bluff.trainedBonus = parseInt(bluffTrainingBonusField.value);
+		var bluffMiscModField = doc.getField("bluffMiscMod");
+		this.skills.bluff.miscMod = parseInt(bluffMiscModField.value);	
+
+		var diplomacyTrainingBonusField = doc.getField("diplomacyTrainingBonus");
+		this.skills.diplomacy.trainedBonus = parseInt(diplomacyTrainingBonusField.value);
+		var diplomacyMiscModField = doc.getField("diplomacyMiscMod");
+		this.skills.diplomacy.miscMod = parseInt(diplomacyMiscModField.value);	
+
+		var dungeoneeringTrainingBonusField = doc.getField("dungeoneeringTrainingBonus");
+		this.skills.dungeoneering.trainedBonus = parseInt(dungeoneeringTrainingBonusField.value);
+		var dungeoneeringMiscModField = doc.getField("dungeoneeringMiscMod");
+		this.skills.dungeoneering.miscMod = parseInt(dungeoneeringMiscModField.value);	
+
+		var enduranceTrainingBonusField = doc.getField("enduranceTrainingBonus");
+		this.skills.endurance.trainedBonus = parseInt(enduranceTrainingBonusField.value);
+		var enduranceArmorPenaltyField = doc.getField("enduranceArmorPenalty");
+		this.skills.endurance.armorPenalty = parseInt(enduranceArmorPenaltyField.value);
+		var enduranceMiscModField = doc.getField("enduranceMiscMod");
+		this.skills.endurance.miscMod = parseInt(enduranceMiscModField.value);	
+
+		var healTrainingBonusField = doc.getField("healTrainingBonus");
+		this.skills.heal.trainedBonus = parseInt(healTrainingBonusField.value);
+		var healMiscModField = doc.getField("healMiscMod");
+		this.skills.heal.miscMod = parseInt(healMiscModField.value);	
+
+		var historyTrainingBonusField = doc.getField("historyTrainingBonus");
+		this.skills.history.trainedBonus = parseInt(historyTrainingBonusField.value);
+		var historyMiscModField = doc.getField("historyMiscMod");
+		this.skills.history.miscMod = parseInt(historyMiscModField.value);	
+
+		var insightTrainingBonusField = doc.getField("insightTrainingBonus");
+		this.skills.insight.trainedBonus = parseInt(insightTrainingBonusField.value);
+		var insightMiscModField = doc.getField("insightMiscMod");
+		this.skills.insight.miscMod = parseInt(insightMiscModField.value);	
+
+		var intimidateTrainingBonusField = doc.getField("intimidateTrainingBonus");
+		this.skills.intimidate.trainedBonus = parseInt(intimidateTrainingBonusField.value);
+		var intimidateMiscModField = doc.getField("intimidateMiscMod");
+		this.skills.intimidate.miscMod = parseInt(intimidateMiscModField.value);	
+
+		var natureTrainingBonusField = doc.getField("natureTrainingBonus");
+		this.skills.nature.trainedBonus = parseInt(natureTrainingBonusField.value);
+		var natureMiscModField = doc.getField("natureMiscMod");
+		this.skills.nature.miscMod = parseInt(natureMiscModField.value);	
+
+		var perceptionTrainingBonusField = doc.getField("perceptionTrainingBonus");
+		this.skills.perception.trainedBonus = parseInt(perceptionTrainingBonusField.value);
+		var perceptionMiscModField = doc.getField("perceptionMiscMod");
+		this.skills.perception.miscMod = parseInt(perceptionMiscModField.value);	
+
+		var religionTrainingBonusField = doc.getField("religionTrainingBonus");
+		this.skills.religion.trainedBonus = parseInt(religionTrainingBonusField.value);
+		var religionMiscModField = doc.getField("religionMiscMod");
+		this.skills.religion.miscMod = parseInt(religionMiscModField.value);	
+
+		var stealthTrainingBonusField = doc.getField("stealthTrainingBonus");
+		this.skills.stealth.trainedBonus = parseInt(stealthTrainingBonusField.value);
+		var stealthArmorPenaltyField = doc.getField("stealthArmorPenalty");
+		this.skills.stealth.armorPenalty = parseInt(stealthArmorPenaltyField.value);
+		var stealthMiscModField = doc.getField("stealthMiscMod");
+		this.skills.stealth.miscMod = parseInt(stealthMiscModField.value);	
+
+		var streetwiseTrainingBonusField = doc.getField("streetwiseTrainingBonus");
+		this.skills.streetwise.trainedBonus = parseInt(streetwiseTrainingBonusField.value);
+		var streetwiseMiscModField = doc.getField("streetwiseMiscMod");
+		this.skills.streetwise.miscMod = parseInt(streetwiseMiscModField.value);	
+
+		var thieveryTrainingBonusField = doc.getField("thieveryTrainingBonus");
+		this.skills.thievery.trainedBonus = parseInt(thieveryTrainingBonusField.value);
+		var thieveryArmorPenaltyField = doc.getField("thieveryArmorPenalty");
+		this.skills.thievery.armorPenalty = parseInt(thieveryArmorPenaltyField.value);
+		var thieveryMiscModField = doc.getField("thieveryMiscMod");
+		this.skills.thievery.miscMod = parseInt(thieveryMiscModField.value);	
+
 	},
 
 	updateView: function(doc) {		
@@ -557,8 +652,293 @@ var PlayerCharacter = {
 		var surgesByDay = this.getSurgesPerDay();
 		if(surgesByDayField.value != surgesByDay){
 			surgesByDayField.value = surgesByDay;
-		}						
-						
+		}	
+
+		var acrobaticsScoreField = doc.getField("acrobaticsScore");
+		var acrobaticsScore = this.getSkillScore("acrobatics");				
+		acrobaticsScoreField.value = signedNumberToString(acrobaticsScore); 
+		var acrobaticsAbilLevelModField = doc.getField("acrobaticsAbilLevelMod");
+		var acrobaticsAbilLevelMod = this.getAbilityModPlusLevel(this.skills.acrobatics.ability);				
+		acrobaticsAbilLevelModField.value = signedNumberToString(acrobaticsAbilLevelMod);
+		var acrobaticsTrainingBonusField = doc.getField("acrobaticsTrainingBonus");
+		if(parseInt(acrobaticsTrainingBonusField.value) != this.skills.acrobatics.trainedBonus){
+			acrobaticsTrainingBonusField.value = signedNumberToString(this.skills.acrobatics.trainedBonus);	
+		}
+		var acrobaticsArmorPenaltyField = doc.getField("acrobaticsArmorPenalty");
+		if(parseInt(acrobaticsArmorPenaltyField.value) != this.skills.acrobatics.armorPenalty){
+			acrobaticsArmorPenaltyField.value = signedNumberToString(this.skills.acrobatics.armorPenalty);	
+		}	
+		var acrobaticsMiscModField = doc.getField("acrobaticsMiscMod");
+		if(parseInt(acrobaticsMiscModField.value) != this.skills.acrobatics.miscMod){
+			acrobaticsMiscModField.value = signedNumberToString(this.skills.acrobatics.miscMod);	
+		}		
+
+		var arcanaScoreField = doc.getField("arcanaScore");
+		var arcanaScore = this.getSkillScore("arcana");				
+		arcanaScoreField.value = signedNumberToString(arcanaScore); 
+		var arcanaAbilLevelModField = doc.getField("arcanaAbilLevelMod");
+		var arcanaAbilLevelMod = this.getAbilityModPlusLevel(this.skills.arcana.ability);				
+		arcanaAbilLevelModField.value = signedNumberToString(arcanaAbilLevelMod);
+		var arcanaTrainingBonusField = doc.getField("arcanaTrainingBonus");
+		if(arcanaTrainingBonusField.value != this.skills.arcana.trainedBonus){
+			arcanaTrainingBonusField.value = signedNumberToString(this.skills.arcana.trainedBonus);	
+		}
+		var arcanaMiscModField = doc.getField("arcanaMiscMod");
+		if(arcanaMiscModField.value != this.skills.arcana.miscMod){
+			arcanaMiscModField.value = signedNumberToString(this.skills.arcana.miscMod);	
+		}
+
+		var athleticsScoreField = doc.getField("athleticsScore");
+		var athleticsScore = this.getSkillScore("athletics");				
+		athleticsScoreField.value = signedNumberToString(athleticsScore); 
+		var athleticsAbilLevelModField = doc.getField("athleticsAbilLevelMod");
+		var athleticsAbilLevelMod = this.getAbilityModPlusLevel(this.skills.athletics.ability);				
+		athleticsAbilLevelModField.value = signedNumberToString(athleticsAbilLevelMod);
+		var athleticsTrainingBonusField = doc.getField("athleticsTrainingBonus");
+		if(athleticsTrainingBonusField.value != this.skills.athletics.trainedBonus){
+			athleticsTrainingBonusField.value = signedNumberToString(this.skills.athletics.trainedBonus);	
+		}
+		var athleticsArmorPenaltyField = doc.getField("athleticsArmorPenalty");
+		if(athleticsArmorPenaltyField.value != this.skills.athletics.armorPenalty){
+			athleticsArmorPenaltyField.value = signedNumberToString(this.skills.athletics.armorPenalty);	
+		}	
+		var athleticsMiscModField = doc.getField("athleticsMiscMod");
+		if(athleticsMiscModField.value != this.skills.athletics.miscMod){
+			athleticsMiscModField.value = signedNumberToString(this.skills.athletics.miscMod);	
+		}
+
+		var bluffScoreField = doc.getField("bluffScore");
+		var bluffScore = this.getSkillScore("bluff");				
+		bluffScoreField.value = signedNumberToString(bluffScore); 
+		var bluffAbilLevelModField = doc.getField("bluffAbilLevelMod");
+		var bluffAbilLevelMod = this.getAbilityModPlusLevel(this.skills.bluff.ability);				
+		bluffAbilLevelModField.value = signedNumberToString(bluffAbilLevelMod);
+		var bluffTrainingBonusField = doc.getField("bluffTrainingBonus");
+		if(bluffTrainingBonusField.value != this.skills.bluff.trainedBonus){
+			bluffTrainingBonusField.value = signedNumberToString(this.skills.bluff.trainedBonus);	
+		}
+		var bluffMiscModField = doc.getField("bluffMiscMod");
+		if(bluffMiscModField.value != this.skills.bluff.miscMod){
+			bluffMiscModField.value = signedNumberToString(this.skills.bluff.miscMod);	
+		}
+
+		var diplomacyScoreField = doc.getField("diplomacyScore");
+		var diplomacyScore = this.getSkillScore("diplomacy");				
+		diplomacyScoreField.value = signedNumberToString(diplomacyScore); 
+		var diplomacyAbilLevelModField = doc.getField("diplomacyAbilLevelMod");
+		var diplomacyAbilLevelMod = this.getAbilityModPlusLevel(this.skills.diplomacy.ability);				
+		diplomacyAbilLevelModField.value = signedNumberToString(diplomacyAbilLevelMod);
+		var diplomacyTrainingBonusField = doc.getField("diplomacyTrainingBonus");
+		if(diplomacyTrainingBonusField.value != this.skills.diplomacy.trainedBonus){
+			diplomacyTrainingBonusField.value = signedNumberToString(this.skills.diplomacy.trainedBonus);	
+		}
+		var diplomacyMiscModField = doc.getField("diplomacyMiscMod");
+		if(diplomacyMiscModField.value != this.skills.diplomacy.miscMod){
+			diplomacyMiscModField.value = signedNumberToString(this.skills.diplomacy.miscMod);	
+		}
+
+		var dungeoneeringScoreField = doc.getField("dungeoneeringScore");
+		var dungeoneeringScore = this.getSkillScore("dungeoneering");				
+		dungeoneeringScoreField.value = signedNumberToString(dungeoneeringScore); 
+		var dungeoneeringAbilLevelModField = doc.getField("dungeoneeringAbilLevelMod");
+		var dungeoneeringAbilLevelMod = this.getAbilityModPlusLevel(this.skills.dungeoneering.ability);				
+		dungeoneeringAbilLevelModField.value = signedNumberToString(dungeoneeringAbilLevelMod);
+		var dungeoneeringTrainingBonusField = doc.getField("dungeoneeringTrainingBonus");
+		if(dungeoneeringTrainingBonusField.value != this.skills.dungeoneering.trainedBonus){
+			dungeoneeringTrainingBonusField.value = signedNumberToString(this.skills.dungeoneering.trainedBonus);	
+		}
+		var dungeoneeringMiscModField = doc.getField("dungeoneeringMiscMod");
+		if(dungeoneeringMiscModField.value != this.skills.dungeoneering.miscMod){
+			dungeoneeringMiscModField.value = signedNumberToString(this.skills.dungeoneering.miscMod);	
+		}
+
+		var enduranceScoreField = doc.getField("enduranceScore");
+		var enduranceScore = this.getSkillScore("endurance");				
+		enduranceScoreField.value = signedNumberToString(enduranceScore); 
+		var enduranceAbilLevelModField = doc.getField("enduranceAbilLevelMod");
+		var enduranceAbilLevelMod = this.getAbilityModPlusLevel(this.skills.endurance.ability);				
+		enduranceAbilLevelModField.value = signedNumberToString(enduranceAbilLevelMod);
+		var enduranceTrainingBonusField = doc.getField("enduranceTrainingBonus");
+		if(enduranceTrainingBonusField.value != this.skills.endurance.trainedBonus){
+			enduranceTrainingBonusField.value = signedNumberToString(this.skills.endurance.trainedBonus);	
+		}
+		var enduranceArmorPenaltyField = doc.getField("enduranceArmorPenalty");
+		if(enduranceArmorPenaltyField.value != this.skills.endurance.armorPenalty){
+			enduranceArmorPenaltyField.value = signedNumberToString(this.skills.endurance.armorPenalty);	
+		}	
+		var enduranceMiscModField = doc.getField("enduranceMiscMod");
+		if(enduranceMiscModField.value != this.skills.endurance.miscMod){
+			enduranceMiscModField.value = signedNumberToString(this.skills.endurance.miscMod);	
+		}
+
+		var healScoreField = doc.getField("healScore");
+		var healScore = this.getSkillScore("heal");				
+		healScoreField.value = signedNumberToString(healScore); 
+		var healAbilLevelModField = doc.getField("healAbilLevelMod");
+		var healAbilLevelMod = this.getAbilityModPlusLevel(this.skills.heal.ability);				
+		healAbilLevelModField.value = signedNumberToString(healAbilLevelMod);
+		var healTrainingBonusField = doc.getField("healTrainingBonus");
+		if(healTrainingBonusField.value != this.skills.heal.trainedBonus){
+			healTrainingBonusField.value = signedNumberToString(this.skills.heal.trainedBonus);	
+		}
+		var healMiscModField = doc.getField("healMiscMod");
+		if(healMiscModField.value != this.skills.heal.miscMod){
+			healMiscModField.value = signedNumberToString(this.skills.heal.miscMod);	
+		}
+
+		var historyScoreField = doc.getField("historyScore");
+		var historyScore = this.getSkillScore("history");				
+		historyScoreField.value = signedNumberToString(historyScore); 
+		var historyAbilLevelModField = doc.getField("historyAbilLevelMod");
+		var historyAbilLevelMod = this.getAbilityModPlusLevel(this.skills.history.ability);				
+		historyAbilLevelModField.value = signedNumberToString(historyAbilLevelMod);
+		var historyTrainingBonusField = doc.getField("historyTrainingBonus");
+		if(historyTrainingBonusField.value != this.skills.history.trainedBonus){
+			historyTrainingBonusField.value = signedNumberToString(this.skills.history.trainedBonus);	
+		}
+		var historyMiscModField = doc.getField("historyMiscMod");
+		if(historyMiscModField.value != this.skills.history.miscMod){
+			historyMiscModField.value = signedNumberToString(this.skills.history.miscMod);	
+		}
+
+		var insightScoreField = doc.getField("insightScore");
+		var insightScore = this.getSkillScore("insight");				
+		insightScoreField.value = signedNumberToString(insightScore); 
+		var insightAbilLevelModField = doc.getField("insightAbilLevelMod");
+		var insightAbilLevelMod = this.getAbilityModPlusLevel(this.skills.insight.ability);				
+		insightAbilLevelModField.value = signedNumberToString(insightAbilLevelMod);
+		var insightTrainingBonusField = doc.getField("insightTrainingBonus");
+		if(insightTrainingBonusField.value != this.skills.insight.trainedBonus){
+			insightTrainingBonusField.value = signedNumberToString(this.skills.insight.trainedBonus);	
+		}
+		var insightMiscModField = doc.getField("insightMiscMod");
+		if(insightMiscModField.value != this.skills.insight.miscMod){
+			insightMiscModField.value = signedNumberToString(this.skills.insight.miscMod);	
+		}
+
+		var intimidateScoreField = doc.getField("intimidateScore");
+		var intimidateScore = this.getSkillScore("intimidate");				
+		intimidateScoreField.value = signedNumberToString(intimidateScore); 
+		var intimidateAbilLevelModField = doc.getField("intimidateAbilLevelMod");
+		var intimidateAbilLevelMod = this.getAbilityModPlusLevel(this.skills.intimidate.ability);				
+		intimidateAbilLevelModField.value = signedNumberToString(intimidateAbilLevelMod);
+		var intimidateTrainingBonusField = doc.getField("intimidateTrainingBonus");
+		if(intimidateTrainingBonusField.value != this.skills.intimidate.trainedBonus){
+			intimidateTrainingBonusField.value = signedNumberToString(this.skills.intimidate.trainedBonus);	
+		}
+		var intimidateMiscModField = doc.getField("intimidateMiscMod");
+		if(intimidateMiscModField.value != this.skills.intimidate.miscMod){
+			intimidateMiscModField.value = signedNumberToString(this.skills.intimidate.miscMod);	
+		}
+
+		var natureScoreField = doc.getField("natureScore");
+		var natureScore = this.getSkillScore("nature");				
+		natureScoreField.value = signedNumberToString(natureScore); 
+		var natureAbilLevelModField = doc.getField("natureAbilLevelMod");
+		var natureAbilLevelMod = this.getAbilityModPlusLevel(this.skills.nature.ability);				
+		natureAbilLevelModField.value = signedNumberToString(natureAbilLevelMod);
+		var natureTrainingBonusField = doc.getField("natureTrainingBonus");
+		if(natureTrainingBonusField.value != this.skills.nature.trainedBonus){
+			natureTrainingBonusField.value = signedNumberToString(this.skills.nature.trainedBonus);	
+		}
+		var natureMiscModField = doc.getField("natureMiscMod");
+		if(natureMiscModField.value != this.skills.nature.miscMod){
+			natureMiscModField.value = signedNumberToString(this.skills.nature.miscMod);	
+		}
+
+		var perceptionScoreField = doc.getField("perceptionScore");
+		var perceptionScore = this.getSkillScore("perception");				
+		perceptionScoreField.value = signedNumberToString(perceptionScore); 
+		var perceptionAbilLevelModField = doc.getField("perceptionAbilLevelMod");
+		var perceptionAbilLevelMod = this.getAbilityModPlusLevel(this.skills.perception.ability);				
+		perceptionAbilLevelModField.value = signedNumberToString(perceptionAbilLevelMod);
+		var perceptionTrainingBonusField = doc.getField("perceptionTrainingBonus");
+		if(perceptionTrainingBonusField.value != this.skills.perception.trainedBonus){
+			perceptionTrainingBonusField.value = signedNumberToString(this.skills.perception.trainedBonus);	
+		}
+		var perceptionMiscModField = doc.getField("perceptionMiscMod");
+		if(perceptionMiscModField.value != this.skills.perception.miscMod){
+			perceptionMiscModField.value = signedNumberToString(this.skills.perception.miscMod);	
+		}
+
+		var religionScoreField = doc.getField("religionScore");
+		var religionScore = this.getSkillScore("religion");				
+		religionScoreField.value = signedNumberToString(religionScore); 
+		var religionAbilLevelModField = doc.getField("religionAbilLevelMod");
+		var religionAbilLevelMod = this.getAbilityModPlusLevel(this.skills.religion.ability);				
+		religionAbilLevelModField.value = signedNumberToString(religionAbilLevelMod);
+		var religionTrainingBonusField = doc.getField("religionTrainingBonus");
+		if(religionTrainingBonusField.value != this.skills.religion.trainedBonus){
+			religionTrainingBonusField.value = signedNumberToString(this.skills.religion.trainedBonus);	
+		}
+		var religionMiscModField = doc.getField("religionMiscMod");
+		if(religionMiscModField.value != this.skills.religion.miscMod){
+			religionMiscModField.value = signedNumberToString(this.skills.religion.miscMod);	
+		}
+
+		var stealthScoreField = doc.getField("stealthScore");
+		var stealthScore = this.getSkillScore("stealth");				
+		stealthScoreField.value = signedNumberToString(stealthScore); 
+		var stealthAbilLevelModField = doc.getField("stealthAbilLevelMod");
+		var stealthAbilLevelMod = this.getAbilityModPlusLevel(this.skills.stealth.ability);				
+		stealthAbilLevelModField.value = signedNumberToString(stealthAbilLevelMod);
+		var stealthTrainingBonusField = doc.getField("stealthTrainingBonus");
+		if(stealthTrainingBonusField.value != this.skills.stealth.trainedBonus){
+			stealthTrainingBonusField.value = signedNumberToString(this.skills.stealth.trainedBonus);	
+		}
+		var stealthArmorPenaltyField = doc.getField("stealthArmorPenalty");
+		if(stealthArmorPenaltyField.value != this.skills.stealth.armorPenalty){
+			stealthArmorPenaltyField.value = signedNumberToString(this.skills.stealth.armorPenalty);	
+		}	
+		var stealthMiscModField = doc.getField("stealthMiscMod");
+		if(stealthMiscModField.value != this.skills.stealth.miscMod){
+			stealthMiscModField.value = signedNumberToString(this.skills.stealth.miscMod);	
+		}
+
+		var streetwiseScoreField = doc.getField("streetwiseScore");
+		var streetwiseScore = this.getSkillScore("streetwise");				
+		streetwiseScoreField.value = signedNumberToString(streetwiseScore); 
+		var streetwiseAbilLevelModField = doc.getField("streetwiseAbilLevelMod");
+		var streetwiseAbilLevelMod = this.getAbilityModPlusLevel(this.skills.streetwise.ability);				
+		streetwiseAbilLevelModField.value = signedNumberToString(streetwiseAbilLevelMod);
+		var streetwiseTrainingBonusField = doc.getField("streetwiseTrainingBonus");
+		if(streetwiseTrainingBonusField.value != this.skills.streetwise.trainedBonus){
+			streetwiseTrainingBonusField.value = signedNumberToString(this.skills.streetwise.trainedBonus);	
+		}
+		var streetwiseMiscModField = doc.getField("streetwiseMiscMod");
+		if(streetwiseMiscModField.value != this.skills.streetwise.miscMod){
+			streetwiseMiscModField.value = signedNumberToString(this.skills.streetwise.miscMod);	
+		}
+
+		var thieveryScoreField = doc.getField("thieveryScore");
+		var thieveryScore = this.getSkillScore("thievery");				
+		thieveryScoreField.value = signedNumberToString(thieveryScore); 
+		var thieveryAbilLevelModField = doc.getField("thieveryAbilLevelMod");
+		var thieveryAbilLevelMod = this.getAbilityModPlusLevel(this.skills.thievery.ability);				
+		thieveryAbilLevelModField.value = signedNumberToString(thieveryAbilLevelMod);
+		var thieveryTrainingBonusField = doc.getField("thieveryTrainingBonus");
+		if(thieveryTrainingBonusField.value != this.skills.thievery.trainedBonus){
+			thieveryTrainingBonusField.value = signedNumberToString(this.skills.thievery.trainedBonus);	
+		}
+		var thieveryArmorPenaltyField = doc.getField("thieveryArmorPenalty");
+		if(thieveryArmorPenaltyField.value != this.skills.thievery.armorPenalty){
+			thieveryArmorPenaltyField.value = signedNumberToString(this.skills.thievery.armorPenalty);	
+		}	
+		var thieveryMiscModField = doc.getField("thieveryMiscMod");
+		if(thieveryMiscModField.value != this.skills.thievery.miscMod){
+			thieveryMiscModField.value = signedNumberToString(this.skills.thievery.miscMod);	
+		}
+
+		var passiveInsightScoreField = doc.getField("passiveInsightScore");
+		passiveInsightScoreField.value = 10 + insightScore;
+		var passiveInsightModField = doc.getField("passiveInsightSkillMod");
+		passiveInsightModField.value = signedNumberToString(insightScore);		
+
+		var passivePerceptionScoreField = doc.getField("passivePerceptionScore");
+		passivePerceptionScoreField.value = 10 + perceptionScore;
+		var passivePerceptionModField = doc.getField("passivePerceptionSkillMod");
+		passivePerceptionModField.value = signedNumberToString(perceptionScore);			
+
 	},	
 
 	xp: 0,
@@ -893,5 +1273,11 @@ var PlayerCharacter = {
 			miscMod: 0
 		}			
 	},
+
+	getSkillScore: function(skill){
+		var abilityMod = this.getAbilityModPlusLevel(this.skills[skill].ability);
+		return abilityMod + this.skills[skill].trainedBonus 
+			+ this.skills[skill].armorPenalty + this.skills[skill].miscMod;
+	}
 
 };

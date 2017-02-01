@@ -541,6 +541,22 @@ var Handlers = {
 				PlayerCharacter.updateView(event.target.doc);
 			}			
 		}
+	},
+
+	skills: {
+		onChange: function(event, skill, mod){
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMod = parseInt(event.value);
+			var oldMod = PlayerCharacter.skills[skill][mod]; 
+			if(newMod != oldMod){				
+				PlayerCharacter.skills[skill][mod] = newMod; 
+				event.value = signedNumberToString(PlayerCharacter.skills[skill][mod]);
+				PlayerCharacter.updateView(event.target.doc);
+			}				
+		}
 	}	
 
 };

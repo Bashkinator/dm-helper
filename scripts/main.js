@@ -1,4 +1,4 @@
-var version = "0.0.11";
+var version = "0.1.0";
 l10n.currentLanguage = "eng";
 
 Array.prototype.includes = function(item){
@@ -374,7 +374,180 @@ function initFields() {
 	var surgesByDayField = this.getField("surgesByDay");	
 	clearFieldHandlers(surgesByDayField);
 	surgesByDayField.setAction("Validate","Handlers.surgesByDay.validate(event);");	
-	surgesByDayField.setAction("Calculate","Handlers.surgesByDay.onChange(event);");						
+	surgesByDayField.setAction("Calculate","Handlers.surgesByDay.onChange(event);");	
+
+	var acrobaticsTrainingBonusField = this.getField("acrobaticsTrainingBonus");
+	clearFieldHandlers(acrobaticsTrainingBonusField);	
+	acrobaticsTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	acrobaticsTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"acrobatics\",\"trainedBonus\");");	
+	var acrobaticsArmorPenaltyField = this.getField("acrobaticsArmorPenalty");	
+	clearFieldHandlers(acrobaticsArmorPenaltyField);
+	acrobaticsArmorPenaltyField.setAction("Validate","Handlers.modValidate(event);");		
+	acrobaticsArmorPenaltyField.setAction("Calculate","Handlers.skills.onChange(event,\"acrobatics\",\"armorPenalty\");");		
+	var acrobaticsMiscModField = this.getField("acrobaticsMiscMod");
+	clearFieldHandlers(acrobaticsMiscModField);	
+	acrobaticsMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	acrobaticsMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"acrobatics\",\"miscMod\");");		
+
+	var arcanaTrainingBonusField = this.getField("arcanaTrainingBonus");
+	clearFieldHandlers(arcanaTrainingBonusField);	
+	arcanaTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	arcanaTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"arcana\",\"trainedBonus\");");	
+	var arcanaMiscModField = this.getField("arcanaMiscMod");
+	clearFieldHandlers(arcanaMiscModField);	
+	arcanaMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	arcanaMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"arcana\",\"miscMod\");");
+
+	var athleticsTrainingBonusField = this.getField("athleticsTrainingBonus");
+	clearFieldHandlers(athleticsTrainingBonusField);	
+	athleticsTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	athleticsTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"athletics\",\"trainedBonus\");");	
+	var athleticsArmorPenaltyField = this.getField("athleticsArmorPenalty");	
+	clearFieldHandlers(athleticsArmorPenaltyField);
+	athleticsArmorPenaltyField.setAction("Validate","Handlers.modValidate(event);");		
+	athleticsArmorPenaltyField.setAction("Calculate","Handlers.skills.onChange(event,\"athletics\",\"armorPenalty\");");		
+	var athleticsMiscModField = this.getField("athleticsMiscMod");
+	clearFieldHandlers(athleticsMiscModField);	
+	athleticsMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	athleticsMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"athletics\",\"miscMod\");");
+
+	var bluffTrainingBonusField = this.getField("bluffTrainingBonus");
+	clearFieldHandlers(bluffTrainingBonusField);	
+	bluffTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	bluffTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"bluff\",\"trainedBonus\");");	
+	var bluffMiscModField = this.getField("bluffMiscMod");
+	clearFieldHandlers(bluffMiscModField);	
+	bluffMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	bluffMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"bluff\",\"miscMod\");");
+
+	var diplomacyTrainingBonusField = this.getField("diplomacyTrainingBonus");
+	clearFieldHandlers(diplomacyTrainingBonusField);	
+	diplomacyTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	diplomacyTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"diplomacy\",\"trainedBonus\");");	
+	var diplomacyMiscModField = this.getField("diplomacyMiscMod");
+	clearFieldHandlers(diplomacyMiscModField);	
+	diplomacyMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	diplomacyMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"diplomacy\",\"miscMod\");");
+
+	var dungeoneeringTrainingBonusField = this.getField("dungeoneeringTrainingBonus");
+	clearFieldHandlers(dungeoneeringTrainingBonusField);	
+	dungeoneeringTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	dungeoneeringTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"dungeoneering\",\"trainedBonus\");");	
+	var dungeoneeringMiscModField = this.getField("dungeoneeringMiscMod");
+	clearFieldHandlers(dungeoneeringMiscModField);	
+	dungeoneeringMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	dungeoneeringMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"dungeoneering\",\"miscMod\");");
+
+	var enduranceTrainingBonusField = this.getField("enduranceTrainingBonus");
+	clearFieldHandlers(enduranceTrainingBonusField);	
+	enduranceTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	enduranceTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"endurance\",\"trainedBonus\");");	
+	var enduranceArmorPenaltyField = this.getField("enduranceArmorPenalty");	
+	clearFieldHandlers(enduranceArmorPenaltyField);
+	enduranceArmorPenaltyField.setAction("Validate","Handlers.modValidate(event);");		
+	enduranceArmorPenaltyField.setAction("Calculate","Handlers.skills.onChange(event,\"endurance\",\"armorPenalty\");");		
+	var enduranceMiscModField = this.getField("enduranceMiscMod");
+	clearFieldHandlers(enduranceMiscModField);	
+	enduranceMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	enduranceMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"endurance\",\"miscMod\");");
+
+	var healTrainingBonusField = this.getField("healTrainingBonus");
+	clearFieldHandlers(healTrainingBonusField);	
+	healTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	healTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"heal\",\"trainedBonus\");");	
+	var healMiscModField = this.getField("healMiscMod");
+	clearFieldHandlers(healMiscModField);	
+	healMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	healMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"heal\",\"miscMod\");");
+
+	var historyTrainingBonusField = this.getField("historyTrainingBonus");
+	clearFieldHandlers(historyTrainingBonusField);	
+	historyTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	historyTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"history\",\"trainedBonus\");");	
+	var historyMiscModField = this.getField("historyMiscMod");
+	clearFieldHandlers(historyMiscModField);	
+	historyMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	historyMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"history\",\"miscMod\");");
+
+	var insightTrainingBonusField = this.getField("insightTrainingBonus");
+	clearFieldHandlers(insightTrainingBonusField);	
+	insightTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	insightTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"insight\",\"trainedBonus\");");	
+	var insightMiscModField = this.getField("insightMiscMod");
+	clearFieldHandlers(insightMiscModField);	
+	insightMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	insightMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"insight\",\"miscMod\");");
+
+	var intimidateTrainingBonusField = this.getField("intimidateTrainingBonus");
+	clearFieldHandlers(intimidateTrainingBonusField);	
+	intimidateTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	intimidateTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"intimidate\",\"trainedBonus\");");	
+	var intimidateMiscModField = this.getField("intimidateMiscMod");
+	clearFieldHandlers(intimidateMiscModField);	
+	intimidateMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	intimidateMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"intimidate\",\"miscMod\");");
+
+	var natureTrainingBonusField = this.getField("natureTrainingBonus");
+	clearFieldHandlers(natureTrainingBonusField);	
+	natureTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	natureTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"nature\",\"trainedBonus\");");	
+	var natureMiscModField = this.getField("natureMiscMod");
+	clearFieldHandlers(natureMiscModField);	
+	natureMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	natureMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"nature\",\"miscMod\");");
+
+	var perceptionTrainingBonusField = this.getField("perceptionTrainingBonus");
+	clearFieldHandlers(perceptionTrainingBonusField);	
+	perceptionTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	perceptionTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"perception\",\"trainedBonus\");");	
+	var perceptionMiscModField = this.getField("perceptionMiscMod");
+	clearFieldHandlers(perceptionMiscModField);	
+	perceptionMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	perceptionMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"perception\",\"miscMod\");");
+
+	var religionTrainingBonusField = this.getField("religionTrainingBonus");
+	clearFieldHandlers(religionTrainingBonusField);	
+	religionTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	religionTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"religion\",\"trainedBonus\");");	
+	var religionMiscModField = this.getField("religionMiscMod");
+	clearFieldHandlers(religionMiscModField);	
+	religionMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	religionMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"religion\",\"miscMod\");");
+
+	var stealthTrainingBonusField = this.getField("stealthTrainingBonus");
+	clearFieldHandlers(stealthTrainingBonusField);	
+	stealthTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	stealthTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"stealth\",\"trainedBonus\");");	
+	var stealthArmorPenaltyField = this.getField("stealthArmorPenalty");	
+	clearFieldHandlers(stealthArmorPenaltyField);
+	stealthArmorPenaltyField.setAction("Validate","Handlers.modValidate(event);");		
+	stealthArmorPenaltyField.setAction("Calculate","Handlers.skills.onChange(event,\"stealth\",\"armorPenalty\");");		
+	var stealthMiscModField = this.getField("stealthMiscMod");
+	clearFieldHandlers(stealthMiscModField);	
+	stealthMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	stealthMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"stealth\",\"miscMod\");");
+
+	var streetwiseTrainingBonusField = this.getField("streetwiseTrainingBonus");
+	clearFieldHandlers(streetwiseTrainingBonusField);	
+	streetwiseTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	streetwiseTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"streetwise\",\"trainedBonus\");");	
+	var streetwiseMiscModField = this.getField("streetwiseMiscMod");
+	clearFieldHandlers(streetwiseMiscModField);	
+	streetwiseMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	streetwiseMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"streetwise\",\"miscMod\");");
+
+	var thieveryTrainingBonusField = this.getField("thieveryTrainingBonus");
+	clearFieldHandlers(thieveryTrainingBonusField);	
+	thieveryTrainingBonusField.setAction("Validate","Handlers.modValidate(event);");		
+	thieveryTrainingBonusField.setAction("Calculate","Handlers.skills.onChange(event,\"thievery\",\"trainedBonus\");");	
+	var thieveryArmorPenaltyField = this.getField("thieveryArmorPenalty");	
+	clearFieldHandlers(thieveryArmorPenaltyField);
+	thieveryArmorPenaltyField.setAction("Validate","Handlers.modValidate(event);");		
+	thieveryArmorPenaltyField.setAction("Calculate","Handlers.skills.onChange(event,\"thievery\",\"armorPenalty\");");		
+	var thieveryMiscModField = this.getField("thieveryMiscMod");
+	clearFieldHandlers(thieveryMiscModField);	
+	thieveryMiscModField.setAction("Validate","Handlers.modValidate(event);");		
+	thieveryMiscModField.setAction("Calculate","Handlers.skills.onChange(event,\"thievery\",\"miscMod\");");
 
 }
 
