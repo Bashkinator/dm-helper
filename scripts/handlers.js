@@ -475,6 +475,72 @@ var Handlers = {
 				PlayerCharacter.updateView(event.target.doc);
 			}			
 		}		
-	}
+	},
+
+	maxHp: {
+		validate: function(event){
+			var newMaxHp = parseInt(event.value);
+			if(Number.isNaN(newMaxHp) || (newMaxHp<0)){
+				event.rc = false;
+			}
+		},
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newMaxHp = parseInt(event.value);
+			var oldMaxHp = PlayerCharacter.getMaxHp(); 
+			if(newMaxHp != oldMaxHp){
+				var baseHp = PlayerCharacter.getBaseHp();
+				PlayerCharacter.extraHp = newMaxHp - baseHp;
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},
+
+	surgeValue: {
+		validate: function(event){
+			var newSurgeValue = parseInt(event.value);
+			if(Number.isNaN(newSurgeValue) || (newSurgeValue<0)){
+				event.rc = false;
+			}
+		},
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newSurgeValue = parseInt(event.value);
+			var oldSurgeValue = PlayerCharacter.getSurgeValue(); 
+			if(newSurgeValue != oldSurgeValue){
+				var baseSurgeValue = PlayerCharacter.getBaseSurgeValue();
+				PlayerCharacter.extraSurgeValue = newSurgeValue - baseSurgeValue;
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	},
+
+	surgesByDay: {
+		validate: function(event){
+			var newSurgesPerDay = parseInt(event.value);
+			if(Number.isNaN(newSurgesPerDay) || (newSurgesPerDay<0)){
+				event.rc = false;
+			}
+		},
+		onChange: function(event) {
+			if(!event || (event.source != event.target)){
+				event.rc = false;
+				return;
+			}
+			var newSurgesPerDay = parseInt(event.value);
+			var oldSurgesPerDay = PlayerCharacter.getSurgesPerDay(); 
+			if(newSurgesPerDay != oldSurgesPerDay){
+				var baseSurgesPerDay = PlayerCharacter.getBaseSurgesPerDay();
+				PlayerCharacter.extraSurgesPerDay = newSurgesPerDay - baseSurgesPerDay;
+				PlayerCharacter.updateView(event.target.doc);
+			}			
+		}
+	}	
 
 };

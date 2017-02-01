@@ -1,4 +1,4 @@
-var version = "0.0.10";
+var version = "0.0.11";
 l10n.currentLanguage = "eng";
 
 Array.prototype.includes = function(item){
@@ -360,6 +360,21 @@ function initFields() {
 	clearFieldHandlers(willMisc2Field);
 	willMisc2Field.setAction("Validate","Handlers.modValidate(event);");		
 	willMisc2Field.setAction("Calculate","Handlers.defenseMisc2.onChange(event,\"will\");");			
+
+	var maxHpField = this.getField("maxHp");	
+	clearFieldHandlers(maxHpField);
+	maxHpField.setAction("Validate","Handlers.maxHp.validate(event);");	
+	maxHpField.setAction("Calculate","Handlers.maxHp.onChange(event);");			
+
+	var surgeValueField = this.getField("surgeValue");	
+	clearFieldHandlers(surgeValueField);
+	surgeValueField.setAction("Validate","Handlers.surgeValue.validate(event);");	
+	surgeValueField.setAction("Calculate","Handlers.surgeValue.onChange(event);");			
+
+	var surgesByDayField = this.getField("surgesByDay");	
+	clearFieldHandlers(surgesByDayField);
+	surgesByDayField.setAction("Validate","Handlers.surgesByDay.validate(event);");	
+	surgesByDayField.setAction("Calculate","Handlers.surgesByDay.onChange(event);");						
 
 }
 

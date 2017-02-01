@@ -122,7 +122,22 @@ var PlayerCharacter = {
 		var willMisc1Field = doc.getField("willMisc1");
 		this.defenses.will.firstMiscMod = parseInt(willMisc1Field.value);
 		var willMisc2Field = doc.getField("willMisc2");
-		this.defenses.will.secondMiscMod = parseInt(willMisc2Field.value);												
+		this.defenses.will.secondMiscMod = parseInt(willMisc2Field.value);
+
+		var maxHpField = doc.getField("maxHp");				
+		var maxHp = this.getMaxHp();
+		var newMaxHp = parseInt(maxHpField.value);
+		this.extraHp = newMaxHp - maxHp;		
+
+		var surgeValueField = doc.getField("surgeValue");				
+		var surgeValue = this.getSurgeValue();
+		var newSurgeValue = parseInt(surgeValueField.value);
+		this.extraSurgeValue = newSurgeValue - surgeValue;		
+
+		var surgesPerDayField = doc.getField("surgesByDay");				
+		var surgesPerDay = this.getSurgesPerDay();
+		var newSurgesPerDay = parseInt(surgesPerDayField.value);
+		this.extraSurgesPerDay = newSurgesPerDay - surgesPerDay;
 
 	},
 
@@ -518,7 +533,31 @@ var PlayerCharacter = {
 		var willMisc2Field = doc.getField("willMisc2");		
 		if(willMisc2Field.value != this.defenses.will.secondMiscMod){
 			willMisc2Field.value = signedNumberToString(this.defenses.will.secondMiscMod);		
-		}				
+		}
+
+		var maxHpField = doc.getField("maxHp");				
+		var maxHp = this.getMaxHp();
+		if(maxHpField.value != maxHp){
+			maxHpField.value = maxHp;
+		}
+
+		var bloodiedValueField = doc.getField("bloodiedValue");				
+		var bloodiedValue = this.getBloodiedValue();
+		if(bloodiedValueField.value != bloodiedValue){
+			bloodiedValueField.value = bloodiedValue;
+		}	
+
+		var surgeValueField = doc.getField("surgeValue");				
+		var surgeValue = this.getSurgeValue();
+		if(surgeValueField.value != surgeValue){
+			surgeValueField.value = surgeValue;
+		}	
+
+		var surgesByDayField = doc.getField("surgesByDay");				
+		var surgesByDay = this.getSurgesPerDay();
+		if(surgesByDayField.value != surgesByDay){
+			surgesByDayField.value = surgesByDay;
+		}						
 						
 	},	
 
@@ -557,11 +596,11 @@ var PlayerCharacter = {
 		        }
 		    }
 		}
-		var level = this.getLevel();	
-		var conMod = this.getAbilityMod("con");	
-		maxHp = newClass.startHits + conMod + newClass.hitsByLevel*(level-1);
-		surgeValue = maxHp/4;
-		surgesPerDay = newClass.surgesByDay + conMod;
+		// var level = this.getLevel();	
+		// var conMod = this.getAbilityMod("con");	
+		// maxHp = newClass.startHits + conMod + newClass.hitsByLevel*(level-1);
+		// surgeValue = maxHp/4;
+		// surgesPerDay = newClass.surgesByDay + conMod;
 		for (var skill in this.skills) {
 		    if (this.skills.hasOwnProperty(skill)) {
 		    	if(newClass.skills.includes(skill)){
@@ -617,9 +656,54 @@ var PlayerCharacter = {
 		return this.getAbilityMod(ability) + this.getLevelMod();
 	},
 
-	maxHp: 0,
-	surgeValue: 0,
-	surgesPerDay: 0,
+	extraHp: 0,
+	extraSurgeValue: 0,
+	extraSurgesPerDay: 0,
+
+	getBaseHp: function(){
+		var level = this.getLevel();		
+		var classData = PlayerClass[this.class];
+		if(classData){
+			return classData.startHits + this.abilities.con + classData.hitsByLevel*(level-1);
+		} else {
+			return this.abilities.con;	
+		}		 
+	},
+
+	getMaxHp: function(){
+		var baseHp = this.getBaseHp();
+		return baseHp + this.extraHp;
+	},
+
+	getBloodiedValue: function(){
+		var hp = this.getMaxHp();
+		return Math.floor(hp/2); 		
+	},
+
+	getBaseSurgeValue: function(){
+		var hp = this.getMaxHp();
+		return Math.floor(hp/4); 
+	},
+
+	getSurgeValue: function(){
+		var baseSurgeValue = this.getBaseSurgeValue();
+		return baseSurgeValue + this.extraSurgeValue;
+	},
+
+	getBaseSurgesPerDay: function(){		
+		var conMod = this.getAbilityMod("con");	
+		var classData = PlayerClass[this.class];
+		if(classData){
+			return classData.surgesByDay + conMod;
+		} else {
+			return conMod;	
+		}
+	},
+
+	getSurgesPerDay: function(){
+		var baseSurgesPerDay = this.getBaseSurgesPerDay();
+		return baseSurgesPerDay + this.extraSurgesPerDay;
+	},	
 
 	initiativeMiscBonus: 0,
 
