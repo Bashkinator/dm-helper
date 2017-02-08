@@ -270,7 +270,7 @@ var l10n = {
 			//deities
 			DEITY_AVANDRA: 									"Авандра",
 			DEITY_BAHAMUT: 									"Бахамут",
-			DEITY_CORELLON: 								"Йоун",
+			DEITY_CORELLON: 								"Кореллон",
 			DEITY_ERATHIS: 									"Эратис",
 			DEITY_IOUN: 									"Йоун",
 			DEITY_KORD: 									"Корд",
